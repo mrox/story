@@ -23,7 +23,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.estimatedRowHeight = 350
+        tableView.estimatedRowHeight = 300
         tableView.rowHeight = UITableViewAutomaticDimension;
         
         self.getTableData();
