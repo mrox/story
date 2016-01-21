@@ -11,6 +11,7 @@ import Alamofire
 import SwiftyJSON
 import Kingfisher
 import ObjectMapper
+import FormatterKit
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -84,7 +85,16 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "DD-MM-YY"
-        cell.postDate.text = dateFormatter.stringFromDate(rowData.updated_at)
+        
+        let date = rowData.updated_at.timeIntervalSinceNow
+        print(date);
+        
+
+        let timeIntervalFormatter:TTTTimeIntervalFormatter = TTTTimeIntervalFormatter()
+
+        cell.postDate.text = timeIntervalFormatter.stringForTimeIntervalFromDate(rowData.updated_at, toDate: NSDate());
+
+        
         
         let detailText = rowData.descriptionField
         
