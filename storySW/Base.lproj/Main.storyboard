@@ -104,6 +104,7 @@
                                             <outlet property="bottomCellView" destination="xdz-3i-ppJ" id="BaT-f9-uAf"/>
                                             <outlet property="coverImageView" destination="tbR-XU-izG" id="WZs-I2-TVL"/>
                                             <outlet property="detailStoryLabel" destination="RgX-21-pI2" id="UGk-V3-VUl"/>
+                                            <outlet property="postDate" destination="XML-Fg-0Kf" id="Zdg-vw-8mw"/>
                                             <outlet property="titleStoryLabel" destination="Nyq-r6-QWX" id="mZf-4L-XaB"/>
                                         </connections>
                                     </tableViewCell>

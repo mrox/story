@@ -13,6 +13,7 @@ class HomeCell: UITableViewCell {
     @IBOutlet weak var titleStoryLabel: UILabel!
     @IBOutlet weak var detailStoryLabel: UILabel!
     @IBOutlet weak var coverImageView: UIImageView!
+    @IBOutlet weak var postDate: UILabel!
     
     @IBOutlet weak var bottomCellView: UIView!
     override func awakeFromNib() {

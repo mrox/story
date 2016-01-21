@@ -1,6 +1,10 @@
 PODS:
   - Alamofire (3.1.5)
+  - AlamofireObjectMapper (2.1.0):
+    - Alamofire (~> 3.1.0)
+    - ObjectMapper (~> 1.0)
   - Kingfisher (1.9.2)
+  - ObjectMapper (1.1.1)
   - Realm (0.97.0):
     - Realm/Headers (= 0.97.0)
   - Realm/Headers (0.97.0)
@@ -10,13 +14,17 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 3.0)
+  - AlamofireObjectMapper (~> 2.1)
   - Kingfisher (~> 1.9)
+  - ObjectMapper (~> 1.1)
   - RealmSwift
   - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 5f730ba29fd113b7ddd71c1e65d0c630acf5d7b0
+  AlamofireObjectMapper: 24097576202064f8b0a583452dd934064f78dc0e
   Kingfisher: 7b6df0fa9d211807152c32c46494f9bc08f0e07b
+  ObjectMapper: 4143abed1dbd49b73d75092fe8fa1c88ed6434b7
   Realm: b498a6fb9d288b171ff98d0e2d4384c295be8990
   RealmSwift: d014810dec75c9a3f1a33926d2dabfed855c582c
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a

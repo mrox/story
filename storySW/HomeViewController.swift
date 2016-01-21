@@ -10,12 +10,14 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import Kingfisher
+import ObjectMapper
 
 class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     
     var arrRes = [[String:AnyObject]]() //Array of dictionary
+    var dataArray = [Story]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +28,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.estimatedRowHeight = 300
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        self.getTableData()
         self.getTableData()
     }
     
@@ -48,35 +49,50 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         Alamofire.request(.GET, apiurl)
             .responseJSON { responseData in
                 let swiftyJsonVar = JSON(responseData.result.value!)
+                let stories = swiftyJsonVar["data"].arrayObject
+//                print(stories)
+                for subJson in stories!{
+                    let story : Story = Mapper<Story>().map(subJson)!
+//                    print(story)
+                    self.dataArray.append(story)
+                }
+                self.tableView.reloadData()
+                print(self.dataArray)
                 
-                if let resData = swiftyJsonVar["data"].arrayObject {
-                    self.arrRes = resData as! [[String:AnyObject]]
-                }
-                if self.arrRes.count > 0 {
-                    self.tableView.reloadData()
-//                    print(self.arrRes);
-                }
+//                if let resData = swiftyJsonVar["data"].arrayObject {
+//                    self.arrRes = resData as! [[String:AnyObject]]
+//                }
+//                if self.arrRes.count > 0 {
+//                    self.tableView.reloadData()
+////                    print(self.arrRes);
+//                }
         }
     }
     
     //Tableview Datasource
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.arrRes.count
+        return self.dataArray.count
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:HomeCell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! HomeCell
-        let rowData = self.arrRes[indexPath.row]
+        
+
+        let rowData:Story = self.dataArray[indexPath.row]
         
         
+        cell.titleStoryLabel.text = rowData.name
         
-        cell.titleStoryLabel.text = rowData["name"] as? String
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "DD-MM-YY"
+        cell.postDate.text = dateFormatter.stringFromDate(rowData.updated_at)
         
-        let detailText = rowData["description"] as? String
+        let detailText = rowData.descriptionField
+        
         let indexString = ((detailText?.characters.indexOf(".")) != nil) ? detailText?.characters.indexOf("."):detailText?.startIndex.advancedBy(200)
         
         cell.detailStoryLabel.text = (detailText?.substringToIndex(indexString!))!+("...")
         
-        cell.coverImageView.kf_setImageWithURL(NSURL(string: (rowData["imgurl"] as? String)!)!);
+        cell.coverImageView.kf_setImageWithURL(NSURL(string: rowData.imgurl)!);
         
         
         //Justified UIlabel
@@ -90,6 +106,31 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 NSBaselineOffsetAttributeName: NSNumber(float: 0)
             ])
         cell.detailStoryLabel.attributedText = attributedString;
+        
+//        let rowData = self.arrRes[indexPath.row]
+//        
+//    
+//        cell.titleStoryLabel.text = rowData["name"] as? String
+//        
+//        let detailText = rowData["description"] as? String
+//        let indexString = ((detailText?.characters.indexOf(".")) != nil) ? detailText?.characters.indexOf("."):detailText?.startIndex.advancedBy(200)
+//        
+//        cell.detailStoryLabel.text = (detailText?.substringToIndex(indexString!))!+("...")
+//        
+//        cell.coverImageView.kf_setImageWithURL(NSURL(string: (rowData["imgurl"] as? String)!)!);
+//        
+//        
+//        //Justified UIlabel
+//        
+//        let paragraphStyle = NSMutableParagraphStyle()
+//        paragraphStyle.alignment = NSTextAlignment.Justified
+//        
+//        let attributedString = NSAttributedString(string: cell.detailStoryLabel.text!,
+//            attributes: [
+//                NSParagraphStyleAttributeName: paragraphStyle,
+//                NSBaselineOffsetAttributeName: NSNumber(float: 0)
+//            ])
+//        cell.detailStoryLabel.attributedText = attributedString;
         
         return cell
     }
