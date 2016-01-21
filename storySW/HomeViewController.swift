@@ -24,9 +24,10 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.dataSource = self
         tableView.delegate = self
         tableView.estimatedRowHeight = 300
-        tableView.rowHeight = UITableViewAutomaticDimension;
+        tableView.rowHeight = UITableViewAutomaticDimension
         
-        self.getTableData();
+        self.getTableData()
+        self.getTableData()
     }
     
     func setNavStyle() {
