@@ -8,6 +8,7 @@
 
 import UIKit
 import FormatterKit
+import GoogleMaterialIconFont
 
 class HomeCell: UITableViewCell {
 
@@ -15,6 +16,10 @@ class HomeCell: UITableViewCell {
     @IBOutlet weak var detailStoryLabel: UILabel!
     @IBOutlet weak var coverImageView: UIImageView!
     @IBOutlet weak var postDate: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak var viewsButton: UIButton!
+    @IBOutlet weak var rateButton: UIButton!
+    @IBOutlet weak var commentButton: UIButton!
     
     @IBOutlet weak var bottomCellView: UIView!
     override func awakeFromNib() {
@@ -24,6 +29,12 @@ class HomeCell: UITableViewCell {
         self.coverImageView.clipsToBounds = true
         self.coverImageView.layer.cornerRadius = CGRectGetHeight(self.coverImageView.frame)/2
         
+        //style status label
+        self.statusLabel.clipsToBounds = true
+        self.statusLabel.layer.cornerRadius = CGRectGetHeight(self.statusLabel.frame)/2
+        self.statusLabel.layer.borderColor = UIColor.whiteColor().CGColor
+        self.statusLabel.layer.borderWidth = 1.0
+        
         //shadow cell
         
         self.bottomCellView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.1).CGColor
@@ -32,6 +43,25 @@ class HomeCell: UITableViewCell {
         self.bottomCellView.layer.shadowRadius = 0.0
         self.bottomCellView.layer.masksToBounds = false
         
+        //views button
+        self.bottomButton(self.viewsButton, text: (String.materialIcon(.Visibility) + " Views (123)"))
+
+        //views button
+        self.bottomButton(self.rateButton, text: (String.materialIcon(.Star) + " 9.5 (200)"))
+        self.rateButton.addBorder(.Left, color: UIColor.silverColor(), width: 1.0)
+        self.rateButton.addBorder(.Right, color: UIColor.silverColor(), width: 1.0)
+
+        //views button
+        self.bottomButton(self.commentButton, text: (String.materialIcon(.Comment) + " Comments(0)"))
+
+    }
+    
+    private func bottomButton (button: UIButton, text: String) {
+
+        button.titleLabel?.font = UIFont.materialIconOfSize(11)
+        button.sizeToFit();
+        button.setTitle(text, forState: .Normal)
+        button.setTitleColor(UIColor.concreteColor(), forState: .Normal)
     }
     
     func configCell(story:Story) {
@@ -79,6 +109,22 @@ class HomeCell: UITableViewCell {
         self.detailStoryLabel.attributedText = attributedString;
         
         
+        //set status color and text
+        switch story.status {
+            case "Đang cập nhật":
+                self.setStyleStatusLabel(UIColor.carrotColor(), text: "ĐR")
+            case "FULL":
+                self.setStyleStatusLabel(UIColor.peterRiverColor(), text: "HT")
+            case "Ngưng":
+                self.setStyleStatusLabel(UIColor.wetAsphaltColor(), text: "TD")
+            default : break
+        }
+        
+    }
+    
+    private func setStyleStatusLabel(color: UIColor, text: String) {
+        self.statusLabel.backgroundColor = color
+        self.statusLabel.text = text
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

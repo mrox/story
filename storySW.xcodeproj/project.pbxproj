@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C13DBA31C522A470021613E /* NSDate+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C13DBA01C522A470021613E /* NSDate+Formatter.swift */; };
+		4C13DBA41C522A470021613E /* UIButton+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C13DBA11C522A470021613E /* UIButton+Border.swift */; };
+		4C13DBA51C522A470021613E /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C13DBA21C522A470021613E /* UIColorExtensions.swift */; };
 		4C1E2ECA1C507A9300FE8B5C /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E2EC91C507A9300FE8B5C /* Story.swift */; };
 		4C1E2ECC1C50845F00FE8B5C /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E2ECB1C50845F00FE8B5C /* Chapter.swift */; };
-		4C1E2ECE1C5087F900FE8B5C /* NSDate+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E2ECD1C5087F900FE8B5C /* NSDate+Formatter.swift */; };
 		4CC4ED521C4F276A00506F13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4ED511C4F276A00506F13 /* AppDelegate.swift */; };
 		4CC4ED571C4F276A00506F13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CC4ED551C4F276A00506F13 /* Main.storyboard */; };
 		4CC4ED591C4F276A00506F13 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4CC4ED581C4F276A00506F13 /* Assets.xcassets */; };
@@ -41,9 +43,11 @@
 /* Begin PBXFileReference section */
 		1387C04544DF704375B822D2 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CCCBB0896C325A33E75DE4F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		4C13DBA01C522A470021613E /* NSDate+Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDate+Formatter.swift"; path = "Extension/NSDate+Formatter.swift"; sourceTree = "<group>"; };
+		4C13DBA11C522A470021613E /* UIButton+Border.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIButton+Border.swift"; path = "Extension/UIButton+Border.swift"; sourceTree = "<group>"; };
+		4C13DBA21C522A470021613E /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtensions.swift; path = Extension/UIColorExtensions.swift; sourceTree = "<group>"; };
 		4C1E2EC91C507A9300FE8B5C /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		4C1E2ECB1C50845F00FE8B5C /* Chapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
-		4C1E2ECD1C5087F900FE8B5C /* NSDate+Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDate+Formatter.swift"; path = "extension/NSDate+Formatter.swift"; sourceTree = "<group>"; };
 		4CC4ED4E1C4F276A00506F13 /* storySW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = storySW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CC4ED511C4F276A00506F13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4CC4ED561C4F276A00506F13 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -104,6 +108,34 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		4C13DB9D1C5225F00021613E /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				4CC4ED7F1C4F2CBC00506F13 /* HomeViewController.swift */,
+				4CC4ED811C4F2F4200506F13 /* HomeCell.swift */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		4C13DB9E1C5226020021613E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4C1E2EC91C507A9300FE8B5C /* Story.swift */,
+				4C1E2ECB1C50845F00FE8B5C /* Chapter.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		4C13DB9F1C5226120021613E /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				4C13DBA01C522A470021613E /* NSDate+Formatter.swift */,
+				4C13DBA11C522A470021613E /* UIButton+Border.swift */,
+				4C13DBA21C522A470021613E /* UIColorExtensions.swift */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
 		4CC4ED451C4F276A00506F13 = {
 			isa = PBXGroup;
 			children = (
@@ -130,15 +162,13 @@
 			isa = PBXGroup;
 			children = (
 				4CC4ED511C4F276A00506F13 /* AppDelegate.swift */,
-				4CC4ED7F1C4F2CBC00506F13 /* HomeViewController.swift */,
-				4CC4ED811C4F2F4200506F13 /* HomeCell.swift */,
+				4C13DB9E1C5226020021613E /* Model */,
+				4C13DB9D1C5225F00021613E /* Home */,
+				4C13DB9F1C5226120021613E /* Extension */,
 				4CC4ED551C4F276A00506F13 /* Main.storyboard */,
 				4CC4ED581C4F276A00506F13 /* Assets.xcassets */,
 				4CC4ED5A1C4F276A00506F13 /* LaunchScreen.storyboard */,
 				4CC4ED5D1C4F276A00506F13 /* Info.plist */,
-				4C1E2EC91C507A9300FE8B5C /* Story.swift */,
-				4C1E2ECB1C50845F00FE8B5C /* Chapter.swift */,
-				4C1E2ECD1C5087F900FE8B5C /* NSDate+Formatter.swift */,
 			);
 			path = storySW;
 			sourceTree = "<group>";
@@ -348,9 +378,11 @@
 				4CC4ED521C4F276A00506F13 /* AppDelegate.swift in Sources */,
 				4C1E2ECC1C50845F00FE8B5C /* Chapter.swift in Sources */,
 				4CC4ED821C4F2F4200506F13 /* HomeCell.swift in Sources */,
-				4C1E2ECE1C5087F900FE8B5C /* NSDate+Formatter.swift in Sources */,
+				4C13DBA31C522A470021613E /* NSDate+Formatter.swift in Sources */,
+				4C13DBA41C522A470021613E /* UIButton+Border.swift in Sources */,
 				4CC4ED801C4F2CBC00506F13 /* HomeViewController.swift in Sources */,
 				4C1E2ECA1C507A9300FE8B5C /* Story.swift in Sources */,
+				4C13DBA51C522A470021613E /* UIColorExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
