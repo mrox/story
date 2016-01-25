@@ -75,6 +75,7 @@ extension Story : Mappable {
         created_at <- (map["created_at"],StoryDateTransform())
         updated_at <- (map["updated_at"],StoryDateTransform())
     }
+    
 }
 
 extension Story  {
