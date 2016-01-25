@@ -17,6 +17,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var tableView: UITableView!
     
     var dataArray = [Story]()
+    var currentPage = 1
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated);
@@ -32,7 +33,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.estimatedRowHeight = 300
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        self.getTableData()
+        self.getTableData(currentPage)
     }
     
     func setNavStyle() {
@@ -47,8 +48,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // Dispose of any resources that can be recreated.
     }
     
-    func getTableData() {
-        let apiurl = "http://ebook2.local.192.168.1.15.xip.io/api/story"
+    func getTableData(page: Int) {
+        
+        let apiurl = "http://ebook2.local.192.168.1.15.xip.io/api/story?page=\(page)"
         
         Alamofire.request(.GET, apiurl)
             .responseJSON { responseData in
@@ -88,6 +90,15 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         cell.configCell(rowData)
         
         return cell
+    }
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        //load more
+        if self.dataArray.count - 5 == indexPath.row {
+            self.currentPage++
+            getTableData(self.currentPage)
+        }
     }
     
 

@@ -262,6 +262,7 @@
 				TargetAttributes = {
 					4CC4ED4D1C4F276A00506F13 = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = CFZZLC6JPH;
 					};
 					4CC4ED611C4F276A00506F13 = {
 						CreatedOnToolsVersion = 7.2;

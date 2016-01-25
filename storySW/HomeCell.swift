@@ -48,8 +48,8 @@ class HomeCell: UITableViewCell {
 
         //views button
         self.bottomButton(self.rateButton, text: (String.materialIcon(.Star) + " 9.5 (200)"))
-        self.rateButton.addBorder(.Left, color: UIColor.silverColor(), width: 1.0)
-        self.rateButton.addBorder(.Right, color: UIColor.silverColor(), width: 1.0)
+        self.rateButton.addBorder(.Left, color: UIColor.cloudsColor(), width: 1.0)
+        self.rateButton.addBorder(.Right, color: UIColor.cloudsColor(), width: 1.0)
 
         //views button
         self.bottomButton(self.commentButton, text: (String.materialIcon(.Comment) + " Comments(0)"))
@@ -79,15 +79,19 @@ class HomeCell: UITableViewCell {
         timeIntervalFormatter.usesIdiomaticDeicticExpressions = false
         timeIntervalFormatter.locale = NSLocale(localeIdentifier: "vn")
         
-        self.postDate.text = timeIntervalFormatter.stringForTimeIntervalFromDate(story.updated_at, toDate: NSDate());
+        self.postDate.text = timeIntervalFormatter.stringForTimeIntervalFromDate(NSDate(), toDate: story.updated_at);
         
         //short Story desc
         
         let detailText = story.descriptionField
         
-        let indexString = ((detailText?.characters.indexOf(".")) != nil) ? detailText?.characters.indexOf("."):detailText?.startIndex.advancedBy(200)
+        if detailText.characters.count > 200 {
+            let indexString = ((detailText?.characters.indexOf(".")) != nil) ? detailText?.characters.indexOf("."):detailText?.startIndex.advancedBy(200)
+            
+            self.detailStoryLabel.text = (detailText?.substringToIndex(indexString!))!+("...")
+        }
+        else { self.detailStoryLabel.text = detailText }
         
-        self.detailStoryLabel.text = (detailText?.substringToIndex(indexString!))!+("...")
         
         //set cover image
         

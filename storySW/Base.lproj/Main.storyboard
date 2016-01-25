@@ -112,7 +112,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" red="0.98770912247474751" green="0.98770912247474751" blue="0.98770912247474751" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
                                                 <constraint firstItem="XML-Fg-0Kf" firstAttribute="top" secondItem="Nyq-r6-QWX" secondAttribute="bottom" constant="3" id="71U-m3-JlX"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="RgX-21-pI2" secondAttribute="trailing" constant="4" id="ARe-ew-rqy"/>
@@ -146,7 +146,7 @@
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="bottomCellView" destination="xdz-3i-ppJ" id="BaT-f9-uAf"/>
                                             <outlet property="commentButton" destination="O5g-xN-nb6" id="qiN-3y-mmt"/>
