@@ -8,6 +8,9 @@
 
 import RealmSwift
 import ObjectMapper
+import Alamofire
+import SwiftyJSON
+
 
 class Story: Object {
     
@@ -27,8 +30,10 @@ class Story: Object {
     dynamic var updated_at : NSDate!
     dynamic var created_at : NSDate!
     dynamic var view = 0
+//    dynamic var last_chapters : [AnyObject]?
     
-    let chapters = List<Chapter>()
+    var chapters = List<Chapter>()
+    
     
     
     required convenience init?(_ map: Map) {
@@ -63,9 +68,39 @@ extension Story : Mappable {
         chapter <- map["chapter"]
         rate <- map["rate"]
         number_chapters <- map["number_chapters"]
+        
+        chapters <- map["last_chapters"]
+        
         ratecount <- map["ratecount"]
         created_at <- (map["created_at"],StoryDateTransform())
         updated_at <- (map["updated_at"],StoryDateTransform())
+    }
+}
+
+extension Story  {
+    
+    class func getNew( page currentPage: Int, complate:(result: [Story])-> Void){
+
+        let API_URL = "http://ebook2.local.192.168.1.15.xip.io/api/story?page=\(currentPage)"
+        
+        Alamofire.request(.GET, API_URL).responseJSON { (responseData) -> Void in
+            
+            if (responseData.result.error != nil){
+                return
+            }
+            
+            let swiftyJsonVar = JSON(responseData.result.value!)
+            let stories = swiftyJsonVar["data"].arrayObject
+            var data = [Story]()
+            for subJson in stories!{
+
+                let story : Story = Mapper<Story>().map(subJson)!
+                data.append(story)
+
+            }
+            complate(result: data)
+
+        }
     }
 }
 

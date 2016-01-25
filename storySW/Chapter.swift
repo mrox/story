@@ -7,12 +7,12 @@
 //
 
 import RealmSwift
+import ObjectMapper
 
 class Chapter: Object {
     
     dynamic var book = 0
     dynamic var chapter = 0
-    dynamic var createdAt : String!
     dynamic var id = 0
     dynamic var name : String!
     dynamic var story_id = 0
@@ -21,9 +21,25 @@ class Chapter: Object {
     
     dynamic var story : Story?
     
-// Specify properties to ignore (Realm won't persist these)
+
+    required convenience init?(_ map: Map) {
+        self.init()
+        mapping(map)
+    }
     
-//  override static func ignoredProperties() -> [String] {
-//    return []
-//  }
+    override class func primaryKey() -> String {
+        return "id"
+    }
+
+}
+
+extension Chapter : Mappable {
+    func mapping(map: Map) {
+        
+        id <- map["id"]
+        chapter <- map["chapter"]
+        name <- map["name"]
+        updated_at <- map["updated_at"]
+
+    }
 }

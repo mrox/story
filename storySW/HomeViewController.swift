@@ -16,8 +16,9 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     @IBOutlet weak var tableView: UITableView!
     
-    var dataArray = [Story]()
+    var dataArray = NSMutableArray()
     var currentPage = 1
+    var loading = false
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated);
@@ -49,29 +50,19 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func getTableData(page: Int) {
-        
-        let apiurl = "http://ebook2.local.192.168.1.15.xip.io/api/story?page=\(page)"
-        
-        Alamofire.request(.GET, apiurl)
-            .responseJSON { responseData in
 
-                if (responseData.result.error != nil){
-                    return
-                }
-                
-                let swiftyJsonVar = JSON(responseData.result.value!)
-                let stories = swiftyJsonVar["data"].arrayObject
+        loading = true
 
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            
+            Story.getNew(page: page) { (result) -> Void in
                 
-                for subJson in stories!{
-                    
-                    let story : Story = Mapper<Story>().map(subJson)!
-                    self.dataArray.append(story)
-                    
+                dispatch_async(dispatch_get_main_queue()) {
+                    self.loading = false
+                    self.dataArray.addObjectsFromArray(result)
+                    self.tableView.reloadData()
                 }
-                
-                self.tableView.reloadData()
-                
+            }
         }
     }
     
@@ -85,7 +76,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         let cell:HomeCell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! HomeCell
         
-        let rowData:Story = self.dataArray[indexPath.row]
+        let rowData:Story = self.dataArray[indexPath.row] as! Story
         
         cell.configCell(rowData)
         
@@ -95,7 +86,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
         //load more
-        if self.dataArray.count - 5 == indexPath.row {
+        if (self.dataArray.count - 5 == indexPath.row && !self.loading) {
             self.currentPage++
             getTableData(self.currentPage)
         }
