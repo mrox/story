@@ -8,6 +8,9 @@
 
 import RealmSwift
 import ObjectMapper
+import Alamofire
+import SwiftyJSON
+
 
 class Chapter: Object {
     
@@ -43,3 +46,37 @@ extension Chapter : Mappable {
 
     }
 }
+
+extension Chapter {
+    class func getList(storyID: Int, complate:(result: [Chapter])-> Void) {
+        
+        let API_URL = "http://ebook2.local.192.168.1.15.xip.io/api/story/\(storyID)/chapters"
+        
+        Alamofire.request(.GET, API_URL).responseJSON { (responseData) -> Void in
+            
+            if (responseData.result.error != nil){
+                print(responseData.result.error?.description)
+                return
+            }
+            
+            let swiftyJsonVar = JSON(responseData.result.value!)
+            let chapters = swiftyJsonVar["chapters"].arrayObject
+            var data = [Chapter]()
+            
+            for subJson in chapters!{
+                
+                let chapter : Chapter = Mapper<Chapter>().map(subJson)!
+                data.append(chapter)
+                
+            }
+            complate(result: data)
+            
+        }
+    }
+}
+
+
+
+
+
+

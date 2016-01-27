@@ -30,7 +30,7 @@ class Story: Object {
     dynamic var updated_at : NSDate!
     dynamic var created_at : NSDate!
     dynamic var view = 0
-//    dynamic var last_chapters : [AnyObject]?
+    dynamic var totalChapters = 0
     
     var chapters = List<Chapter>()
     
@@ -44,12 +44,7 @@ class Story: Object {
     override class func primaryKey() -> String {
         return "id"
     }
-    
-// Specify properties to ignore (Realm won't persist these)
-    
-//  override static func ignoredProperties() -> [String] {
-//    return []
-//  }
+
 }
 
 extension Story : Mappable {
@@ -67,10 +62,8 @@ extension Story : Mappable {
         status <- map["status"]
         chapter <- map["chapter"]
         rate <- map["rate"]
-        number_chapters <- map["number_chapters"]
-        
-        chapters <- map["last_chapters"]
-        
+        totalChapters <- map["number_chapters"]
+        chapters <- (map["last_chapters"], ListTransform<Chapter>())
         ratecount <- map["ratecount"]
         created_at <- (map["created_at"],StoryDateTransform())
         updated_at <- (map["updated_at"],StoryDateTransform())
@@ -87,6 +80,7 @@ extension Story  {
         Alamofire.request(.GET, API_URL).responseJSON { (responseData) -> Void in
             
             if (responseData.result.error != nil){
+                print(responseData.result.error?.description)
                 return
             }
             
@@ -96,38 +90,15 @@ extension Story  {
             for subJson in stories!{
 
                 let story : Story = Mapper<Story>().map(subJson)!
+//                print(story)
                 data.append(story)
-
+                
             }
             complate(result: data)
 
         }
     }
 }
-
-class StoryDateTransform : DateTransform {
-    override func transformFromJSON(value: AnyObject?) -> NSDate? {
-        if let dateStr = value as? String {
-            return NSDate.dateWithString(
-                dateStr,
-                format: "yyyy-MM-DD HH:mm:ss", //"E, dd MMM yyyy HH:mm:ss zzzz" ,//YYYY-MM-DD HH:MI:SS
-                locale : NSLocale(localeIdentifier: "vi_VN"))
-        }
-        return nil
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
