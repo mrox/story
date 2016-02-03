@@ -19,8 +19,8 @@ class Chapter: Object {
     dynamic var id = 0
     dynamic var name : String!
     dynamic var story_id = 0
-    dynamic var created_at : String!
-    dynamic var updated_at : String!
+    dynamic var created_at : NSDate!
+    dynamic var updated_at : NSDate!
     
     dynamic var story : Story?
     
@@ -42,7 +42,8 @@ extension Chapter : Mappable {
         id <- map["id"]
         chapter <- map["chapter"]
         name <- map["name"]
-        updated_at <- map["updated_at"]
+        updated_at <- (map["updated_at"],StoryDateTransform())
+        created_at <- (map["created_at"],StoryDateTransform())
 
     }
 }
@@ -51,16 +52,20 @@ extension Chapter {
     class func getList(storyID: Int, complate:(result: [Chapter])-> Void) {
         
         let API_URL = "http://ebook2.local.192.168.1.15.xip.io/api/story/\(storyID)/chapters"
+
         
-        Alamofire.request(.GET, API_URL).responseJSON { (responseData) -> Void in
+        Alamofire.request(.GET, API_URL).responseJSON { (response) -> Void in
             
-            if (responseData.result.error != nil){
-                print(responseData.result.error?.description)
+            if (response.result.error != nil){
+                print(response.result.error?.description)
                 return
             }
             
-            let swiftyJsonVar = JSON(responseData.result.value!)
-            let chapters = swiftyJsonVar["chapters"].arrayObject
+            let cachedURLResponse = NSCachedURLResponse(response: response.response!, data: (response.data! as NSData), userInfo: nil, storagePolicy: .Allowed)
+            NSURLCache.sharedURLCache().storeCachedResponse(cachedURLResponse, forRequest: response.request!)
+            
+            let swiftyJsonVar = JSON(response.result.value!)
+            let chapters = swiftyJsonVar.arrayObject
             var data = [Chapter]()
             
             for subJson in chapters!{

@@ -17,7 +17,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         application.statusBarStyle = UIStatusBarStyle.LightContent
+
+        let tabbar: UITabBarController = self.window?.rootViewController as! UITabBarController
+        
+//        UITabBar.appearance().shadowImage = UIImage()
+//        
+//        UITabBar.appearance().backgroundImage = UIImage()
+        
+//        UITabBar.appearance().barTintColor = UIColor.midnightBlueColor()
+//        UITabBar.appearance().tintColor = UIColor.whiteColor()
+        
+        UITabBar.appearance().selectionIndicatorImage = UIImage.imageWithColor(UIColor.cloudsColor(), size: CGSizeMake((window?.screen.bounds.size.width)!/CGFloat((tabbar.tabBar.items?.count)!), 49))
+        UITabBar.appearance().translucent = false
+        
+        self.removeTabbarItemText(tabbar)
+        
         return true
+    }
+    
+    func removeTabbarItemText(tabBar: UITabBarController) {
+        if let items = tabBar.tabBar.items {
+            var i = 0
+            for item in items {
+                if i == 0 {
+//                    let view = item. as! UIView?
+                    
+                }
+                item.title = ""
+                item.imageInsets = UIEdgeInsetsMake(4, 0, -4, 0);
+                i++
+            }
+        }
     }
 
     func applicationWillResignActive(application: UIApplication) {

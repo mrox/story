@@ -29,6 +29,7 @@ class ListTransform<T:RealmSwift.Object where T:Mappable> : TransformType {
         return results
     }
     
+    
     func transformToJSON(value: Object?) -> JSON? {
         var results = [AnyObject]()
         if let value = value {

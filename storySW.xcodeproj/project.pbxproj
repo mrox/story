@@ -14,6 +14,10 @@
 		4C1E2ECC1C50845F00FE8B5C /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E2ECB1C50845F00FE8B5C /* Chapter.swift */; };
 		4C34F72D1C5747B3004D4D4C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C34F72C1C5747B3004D4D4C /* DetailViewController.swift */; };
 		4C34F7301C5769C3004D4D4C /* DetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C34F72F1C5769C3004D4D4C /* DetailCell.swift */; };
+		4C3FEBD01C5A258800C1C9A9 /* Tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3FEBCF1C5A258800C1C9A9 /* Tabbar.swift */; };
+		4C3FEBD21C5A298800C1C9A9 /* imageColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C3FEBD11C5A298800C1C9A9 /* imageColor.swift */; };
+		4C73871B1C607B540083F105 /* ReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C73871A1C607B540083F105 /* ReaderViewController.swift */; };
+		4C7E9B631C5B669600A52676 /* UIViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E9B621C5B669600A52676 /* UIViewControllerHelper.swift */; };
 		4CC2E88D1C561769007AC7D8 /* RealmTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC2E88C1C561769007AC7D8 /* RealmTransform.swift */; };
 		4CC4ED521C4F276A00506F13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4ED511C4F276A00506F13 /* AppDelegate.swift */; };
 		4CC4ED571C4F276A00506F13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CC4ED551C4F276A00506F13 /* Main.storyboard */; };
@@ -23,6 +27,7 @@
 		4CC4ED721C4F276A00506F13 /* storySWUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4ED711C4F276A00506F13 /* storySWUITests.swift */; };
 		4CC4ED801C4F2CBC00506F13 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4ED7F1C4F2CBC00506F13 /* HomeViewController.swift */; };
 		4CC4ED821C4F2F4200506F13 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4ED811C4F2F4200506F13 /* HomeCell.swift */; };
+		4CD68C0E1C59B48C00413988 /* ChapterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD68C0D1C59B48C00413988 /* ChapterCell.swift */; };
 		7CE9433B06217544418D9472 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1387C04544DF704375B822D2 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +58,10 @@
 		4C1E2ECB1C50845F00FE8B5C /* Chapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
 		4C34F72C1C5747B3004D4D4C /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		4C34F72F1C5769C3004D4D4C /* DetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailCell.swift; sourceTree = "<group>"; };
+		4C3FEBCF1C5A258800C1C9A9 /* Tabbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tabbar.swift; sourceTree = "<group>"; };
+		4C3FEBD11C5A298800C1C9A9 /* imageColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = imageColor.swift; path = Extension/imageColor.swift; sourceTree = "<group>"; };
+		4C73871A1C607B540083F105 /* ReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaderViewController.swift; sourceTree = "<group>"; };
+		4C7E9B621C5B669600A52676 /* UIViewControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerHelper.swift; path = Extension/UIViewControllerHelper.swift; sourceTree = "<group>"; };
 		4CC2E88C1C561769007AC7D8 /* RealmTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealmTransform.swift; path = Extension/RealmTransform.swift; sourceTree = "<group>"; };
 		4CC4ED4E1C4F276A00506F13 /* storySW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = storySW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CC4ED511C4F276A00506F13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -68,6 +77,7 @@
 		4CC4ED731C4F276A00506F13 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4CC4ED7F1C4F2CBC00506F13 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4CC4ED811C4F2F4200506F13 /* HomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
+		4CD68C0D1C59B48C00413988 /* ChapterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChapterCell.swift; sourceTree = "<group>"; };
 		D2EAFCADF1CCFA9F3E1CFC9F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -136,9 +146,12 @@
 			isa = PBXGroup;
 			children = (
 				4C13DBA01C522A470021613E /* NSDate+Formatter.swift */,
+				4C3FEBD11C5A298800C1C9A9 /* imageColor.swift */,
 				4C13DBA11C522A470021613E /* UIButton+Border.swift */,
 				4C13DBA21C522A470021613E /* UIColorExtensions.swift */,
 				4CC2E88C1C561769007AC7D8 /* RealmTransform.swift */,
+				4C3FEBCF1C5A258800C1C9A9 /* Tabbar.swift */,
+				4C7E9B621C5B669600A52676 /* UIViewControllerHelper.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -148,8 +161,17 @@
 			children = (
 				4C34F72C1C5747B3004D4D4C /* DetailViewController.swift */,
 				4C34F72F1C5769C3004D4D4C /* DetailCell.swift */,
+				4CD68C0D1C59B48C00413988 /* ChapterCell.swift */,
 			);
 			name = Detail;
+			sourceTree = "<group>";
+		};
+		4C73871C1C607B5A0083F105 /* Reader */ = {
+			isa = PBXGroup;
+			children = (
+				4C73871A1C607B540083F105 /* ReaderViewController.swift */,
+			);
+			name = Reader;
 			sourceTree = "<group>";
 		};
 		4CC4ED451C4F276A00506F13 = {
@@ -181,6 +203,7 @@
 				4C13DB9E1C5226020021613E /* Model */,
 				4C13DB9D1C5225F00021613E /* Home */,
 				4C34F72E1C5747B7004D4D4C /* Detail */,
+				4C73871C1C607B5A0083F105 /* Reader */,
 				4C13DB9F1C5226120021613E /* Extension */,
 				4CC4ED551C4F276A00506F13 /* Main.storyboard */,
 				4CC4ED581C4F276A00506F13 /* Assets.xcassets */,
@@ -395,7 +418,12 @@
 			files = (
 				4CC4ED521C4F276A00506F13 /* AppDelegate.swift in Sources */,
 				4C34F7301C5769C3004D4D4C /* DetailCell.swift in Sources */,
+				4C7E9B631C5B669600A52676 /* UIViewControllerHelper.swift in Sources */,
 				4C1E2ECC1C50845F00FE8B5C /* Chapter.swift in Sources */,
+				4C3FEBD21C5A298800C1C9A9 /* imageColor.swift in Sources */,
+				4CD68C0E1C59B48C00413988 /* ChapterCell.swift in Sources */,
+				4C3FEBD01C5A258800C1C9A9 /* Tabbar.swift in Sources */,
+				4C73871B1C607B540083F105 /* ReaderViewController.swift in Sources */,
 				4CC2E88D1C561769007AC7D8 /* RealmTransform.swift in Sources */,
 				4CC4ED821C4F2F4200506F13 /* HomeCell.swift in Sources */,
 				4C13DBA31C522A470021613E /* NSDate+Formatter.swift in Sources */,

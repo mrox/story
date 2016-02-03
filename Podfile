@@ -11,4 +11,5 @@ pod 'AlamofireObjectMapper', '~> 2.1'
 pod 'FormatterKit', '~> 1.8'
 pod 'GoogleMaterialIconFont'
 pod 'SnapKit', '~> 0.15.0'
+pod 'RAMAnimatedTabBarController', '~> 1.0.6'
 

@@ -44,6 +44,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>RAMAnimatedTabBarController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Realm.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,7 +72,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>22444F146542AC94356DF68A636418B1</key>
+		<key>1EB711BD0B608C36D0C7A0BCD915C9BA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3BB6AA7D7F7009254D21C36E5196B8AE</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,17 +87,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>4583ADD262DAE9746969E72F922047D3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>530D6C80A48B111E699112901A98FEEA</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>608F7B921E099F6B9EFC064626C0E020</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6B69FB50C2378D2324C2892FB1C12C03</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,7 +112,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>EA2510B6BEC5486F209F2F4A518C32BB</key>
+		<key>DF703A4F8C08CA03B80244A9024730B2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E510930B9025D0F8657156134B7AA4BB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,7 +127,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>FB5225750F071071572EE305F517FA45</key>
+		<key>F9358128FEFEC0CA3E405C2FD358D96B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

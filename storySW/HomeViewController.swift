@@ -20,10 +20,16 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
     var currentPage = 1
     var loading     = false
 
+    override func viewWillAppear(animated: Bool) {
+        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
+    }
+    
 	override func viewDidAppear(animated: Bool) {
 		super.viewDidAppear(animated) ;
 		tableView.reloadData() ;
+//        self.showTabbar()
 	}
+    
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -38,6 +44,7 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 	}
 
 	func setNavStyle() {
+        
         self.navigationController?.navigationBar.barTintColor        = UIColor(red: 0.31, green: 0.42, blue: 0.64, alpha: 1)
         self.navigationController?.navigationBar.translucent         = false;
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
@@ -110,9 +117,11 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         detailVC.hidesBottomBarWhenPushed  = true
         detailVC.story                     = self.dataArray[indexPath.row] as! Story
-        
 		self.navigationController?.pushViewController(detailVC, animated: true)
+        
 	}
+    
+   
 
 	/*
 	 // MARK: - Navigation
