@@ -31,6 +31,7 @@ class Story: Object {
     dynamic var created_at : NSDate!
     dynamic var view = 0
     dynamic var totalChapters = 0
+    dynamic var sourceID = 0
     
     var chapters = List<Chapter>()
     
@@ -67,6 +68,7 @@ extension Story : Mappable {
         ratecount <- map["ratecount"]
         created_at <- (map["created_at"],StoryDateTransform())
         updated_at <- (map["updated_at"],StoryDateTransform())
+        sourceID <- map["source_id"]
     }
     
 }

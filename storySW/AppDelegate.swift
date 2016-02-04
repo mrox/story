@@ -32,6 +32,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.removeTabbarItemText(tabbar)
         
+    
+        
+        UINavigationBar.appearance().barTintColor        = UIColor(red: 0.31, green: 0.42, blue: 0.64, alpha: 1)
+        UINavigationBar.appearance().translucent         = false;
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        UINavigationBar.appearance().tintColor           = UIColor.whiteColor()
+        
+        
+        
         return true
     }
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C0CAEAE1C62208900ACFFD5 /* String2Html.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0CAEAD1C62208900ACFFD5 /* String2Html.swift */; };
 		4C13DBA31C522A470021613E /* NSDate+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C13DBA01C522A470021613E /* NSDate+Formatter.swift */; };
 		4C13DBA41C522A470021613E /* UIButton+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C13DBA11C522A470021613E /* UIButton+Border.swift */; };
 		4C13DBA51C522A470021613E /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C13DBA21C522A470021613E /* UIColorExtensions.swift */; };
@@ -28,6 +29,8 @@
 		4CC4ED801C4F2CBC00506F13 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4ED7F1C4F2CBC00506F13 /* HomeViewController.swift */; };
 		4CC4ED821C4F2F4200506F13 /* HomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4ED811C4F2F4200506F13 /* HomeCell.swift */; };
 		4CD68C0E1C59B48C00413988 /* ChapterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CD68C0D1C59B48C00413988 /* ChapterCell.swift */; };
+		4CFB8C3F1C62EE5100D6EC80 /* ControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CFB8C3E1C62EE5100D6EC80 /* ControlView.swift */; };
+		4CFB8C411C62EE6400D6EC80 /* ControlView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CFB8C401C62EE6400D6EC80 /* ControlView.xib */; };
 		7CE9433B06217544418D9472 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1387C04544DF704375B822D2 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +54,7 @@
 /* Begin PBXFileReference section */
 		1387C04544DF704375B822D2 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CCCBB0896C325A33E75DE4F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		4C0CAEAD1C62208900ACFFD5 /* String2Html.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = String2Html.swift; path = Extension/String2Html.swift; sourceTree = "<group>"; };
 		4C13DBA01C522A470021613E /* NSDate+Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDate+Formatter.swift"; path = "Extension/NSDate+Formatter.swift"; sourceTree = "<group>"; };
 		4C13DBA11C522A470021613E /* UIButton+Border.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIButton+Border.swift"; path = "Extension/UIButton+Border.swift"; sourceTree = "<group>"; };
 		4C13DBA21C522A470021613E /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtensions.swift; path = Extension/UIColorExtensions.swift; sourceTree = "<group>"; };
@@ -78,6 +82,8 @@
 		4CC4ED7F1C4F2CBC00506F13 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		4CC4ED811C4F2F4200506F13 /* HomeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCell.swift; sourceTree = "<group>"; };
 		4CD68C0D1C59B48C00413988 /* ChapterCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChapterCell.swift; sourceTree = "<group>"; };
+		4CFB8C3E1C62EE5100D6EC80 /* ControlView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControlView.swift; sourceTree = "<group>"; };
+		4CFB8C401C62EE6400D6EC80 /* ControlView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ControlView.xib; sourceTree = "<group>"; };
 		D2EAFCADF1CCFA9F3E1CFC9F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -146,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				4C13DBA01C522A470021613E /* NSDate+Formatter.swift */,
+				4C0CAEAD1C62208900ACFFD5 /* String2Html.swift */,
 				4C3FEBD11C5A298800C1C9A9 /* imageColor.swift */,
 				4C13DBA11C522A470021613E /* UIButton+Border.swift */,
 				4C13DBA21C522A470021613E /* UIColorExtensions.swift */,
@@ -170,6 +177,8 @@
 			isa = PBXGroup;
 			children = (
 				4C73871A1C607B540083F105 /* ReaderViewController.swift */,
+				4CFB8C3E1C62EE5100D6EC80 /* ControlView.swift */,
+				4CFB8C401C62EE6400D6EC80 /* ControlView.xib */,
 			);
 			name = Reader;
 			sourceTree = "<group>";
@@ -341,6 +350,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4CFB8C411C62EE6400D6EC80 /* ControlView.xib in Resources */,
 				4CC4ED5C1C4F276A00506F13 /* LaunchScreen.storyboard in Resources */,
 				4CC4ED591C4F276A00506F13 /* Assets.xcassets in Resources */,
 				4CC4ED571C4F276A00506F13 /* Main.storyboard in Resources */,
@@ -429,8 +439,10 @@
 				4C13DBA31C522A470021613E /* NSDate+Formatter.swift in Sources */,
 				4C13DBA41C522A470021613E /* UIButton+Border.swift in Sources */,
 				4CC4ED801C4F2CBC00506F13 /* HomeViewController.swift in Sources */,
+				4C0CAEAE1C62208900ACFFD5 /* String2Html.swift in Sources */,
 				4C34F72D1C5747B3004D4D4C /* DetailViewController.swift in Sources */,
 				4C1E2ECA1C507A9300FE8B5C /* Story.swift in Sources */,
+				4CFB8C3F1C62EE5100D6EC80 /* ControlView.swift in Sources */,
 				4C13DBA51C522A470021613E /* UIColorExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

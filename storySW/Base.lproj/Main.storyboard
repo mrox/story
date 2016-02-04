@@ -335,7 +335,6 @@ Vì thủ hộ mảnh đất cuối cùng của nhân loại, võ giả triển 
                                         <connections>
                                             <outlet property="nameLabel" destination="NqE-lq-4fy" id="nPg-na-KmD"/>
                                             <outlet property="updateDate" destination="Txv-qe-ygT" id="dXs-ib-rrG"/>
-                                            <segue destination="7iK-2H-E3Q" kind="presentation" id="49U-dM-mnZ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -362,27 +361,24 @@ Vì thủ hộ mảnh đất cuối cùng của nhân loại, võ giả triển 
         <!--Reader View Controller-->
         <scene sceneID="dbf-r2-PaS">
             <objects>
-                <viewController id="4Hg-8y-lC0" customClass="ReaderViewController" customModule="storySW" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="readerVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="4Hg-8y-lC0" customClass="ReaderViewController" customModule="storySW" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="IRp-xB-dWB"/>
                         <viewControllerLayoutGuide type="bottom" id="Geq-tm-ong"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="jad-wB-F1d">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="FLR-fH-Ebq">
-                        <barButtonItem key="rightBarButtonItem" title="xxx" id="odz-LL-tND">
-                            <connections>
-                                <action selector="closeDidTouch:" destination="4Hg-8y-lC0" id="12z-Y5-7Zg"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="xxx" id="odz-LL-tND"/>
                     </navigationItem>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cfY-v4-7Yv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4155" y="369"/>
+            <point key="canvasLocation" x="3091" y="353"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="3fm-dn-hQu">
@@ -431,7 +427,7 @@ Vì thủ hộ mảnh đất cuối cùng của nhân loại, võ giả triển 
             </objects>
             <point key="canvasLocation" x="1117" y="369"/>
         </scene>
-        <!--View Controller-->
+        <!--Catalogs-->
         <scene sceneID="NIz-18-k0q">
             <objects>
                 <viewController id="dfs-3a-oa1" sceneMemberID="viewController">
@@ -444,7 +440,7 @@ Vì thủ hộ mảnh đất cuối cùng của nhân loại, võ giả triển 
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="SRV-C5-VMb"/>
+                    <navigationItem key="navigationItem" title="Catalogs" id="SRV-C5-VMb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dgK-zb-t6f" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="T7L-m7-jEF" customClass="RAMBounceAnimation" customModule="RAMAnimatedTabBarController"/>
@@ -455,7 +451,7 @@ Vì thủ hộ mảnh đất cuối cùng của nhân loại, võ giả triển 
         <scene sceneID="jmb-0j-1vM">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jmy-1y-04m" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="story" id="bB6-gv-oI3">
+                    <tabBarItem key="tabBarItem" title="" image="catalog" id="bB6-gv-oI3">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -473,7 +469,7 @@ Vì thủ hộ mảnh đất cuối cùng của nhân loại, võ giả triển 
             </objects>
             <point key="canvasLocation" x="1117" y="1116"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings-->
         <scene sceneID="wQ9-cp-2uY">
             <objects>
                 <viewController id="luL-NU-vFw" sceneMemberID="viewController">
@@ -486,7 +482,7 @@ Vì thủ hộ mảnh đất cuối cùng của nhân loại, võ giả triển 
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="18B-yS-l2M"/>
+                    <navigationItem key="navigationItem" title="Settings" id="18B-yS-l2M"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fRX-q2-qVX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -496,7 +492,7 @@ Vì thủ hộ mảnh đất cuối cùng của nhân loại, võ giả triển 
         <scene sceneID="f8P-yI-hJ6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DJF-RY-fl1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="story" id="V02-vi-I08"/>
+                    <tabBarItem key="tabBarItem" title="" image="setting" id="V02-vi-I08"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2zi-Yu-f9u">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -509,29 +505,12 @@ Vì thủ hộ mảnh đất cuối cùng của nhân loại, võ giả triển 
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eG7-5t-Yfc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1125" y="1908"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="gxg-0U-H0y">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7iK-2H-E3Q" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="gm3-Jd-xf1">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="4Hg-8y-lC0" kind="relationship" relationship="rootViewController" id="IlX-8m-LDN"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="F16-Ko-j8m" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3343" y="369"/>
+            <point key="canvasLocation" x="1117" y="1980"/>
         </scene>
     </scenes>
     <resources>
+        <image name="catalog" width="30" height="30"/>
         <image name="home_logo" width="204" height="56"/>
-        <image name="story" width="30" height="30"/>
+        <image name="setting" width="30" height="30"/>
     </resources>
 </document>

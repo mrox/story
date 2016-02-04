@@ -22,7 +22,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var numberOfButton = 0
 
     override func viewWillAppear(animated: Bool) {
-        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: true)
+        UIApplication.sharedApplication().setStatusBarStyle(.LightContent, animated: false)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +38,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         self.tableView.estimatedRowHeight = 28
         self.tableView.rowHeight = UITableViewAutomaticDimension
         
-        Chapter.getList(story.id) { (result) -> Void in
+        Chapter.getList(story.sourceID) { (result) -> Void in
             self.chapters = result
             self.numberOfButton = self.chapters.count/kStepButton as Int
             self.tableView.reloadData()
@@ -154,7 +154,7 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
             timeIntervalFormatter.usesIdiomaticDeicticExpressions = false
             timeIntervalFormatter.locale                          = NSLocale(localeIdentifier: "vn")
             
-            cell.updateDate.text = timeIntervalFormatter.stringForTimeIntervalFromDate(NSDate(), toDate: cellData.updated_at)
+            cell.updateDate.text = cellData.created_at
             return cell
         }
     
@@ -179,7 +179,14 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if indexPath.section == 0 { return }
         let chapter = self.chapters[indexPath.row]
         print(chapter)
+
+        let detailVC: ReaderViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("readerVC") as! ReaderViewController
         
+        detailVC.chapter = chapter
+        self.presentViewController(detailVC, animated: true) { () -> Void in
+            UIApplication.sharedApplication().setStatusBarHidden(true, withAnimation: .None)
+            UIApplication.sharedApplication().setStatusBarStyle(.Default, animated: true)
+        }
     }
     
 

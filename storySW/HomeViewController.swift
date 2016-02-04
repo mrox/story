@@ -44,11 +44,6 @@ class HomeViewController: UIViewController, UITableViewDataSource, UITableViewDe
 	}
 
 	func setNavStyle() {
-        
-        self.navigationController?.navigationBar.barTintColor        = UIColor(red: 0.31, green: 0.42, blue: 0.64, alpha: 1)
-        self.navigationController?.navigationBar.translucent         = false;
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        self.navigationController?.navigationBar.tintColor           = UIColor.whiteColor()
 
         let logo : UIImage            = UIImage.init(named: "home_logo")!
         self.navigationItem.titleView = UIImageView.init(image: logo)
