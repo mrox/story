@@ -131,8 +131,8 @@ class HomeCell: UITableViewCell {
         }
         
         //
-        let lastChapter: Chapter = story.chapters[0]
-        self.lastChapterButton.setTitle("Chương \(lastChapter.chapter): \(lastChapter.name)", forState: .Normal)
+//        let lastChapter: Chapter = story.chapters[0]
+        self.lastChapterButton.setTitle(story.chapter, forState: .Normal)
         
         //views button
         self.bottomButton(self.viewsButton, text: (String.materialIcon(.Visibility) + " \(story.view) views"))

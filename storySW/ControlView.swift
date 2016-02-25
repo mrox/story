@@ -11,10 +11,10 @@ import UIKit
 
 @objc protocol ControlDelegate {
     optional func closeDidTouch()
-//    optional func bookmarkedDidTouch()
-//    optional func fontDidTouch()
-//    optional func bookmarkDidTouch()
-//    optional func listChaptersDidTouch()
+    optional func bookmarkedDidTouch()
+    optional func fontDidTouch()
+    optional func bookmarkDidTouch()
+    optional func listChaptersDidTouch()
     
 }
 

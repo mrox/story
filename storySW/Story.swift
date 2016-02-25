@@ -23,7 +23,7 @@ class Story: Object {
     dynamic var imgurl : String!
     dynamic var like = 0
     dynamic var name : String!
-    dynamic var number_chapters = 0
+//    dynamic var number_chapters = 0
     dynamic var rate = 0
     dynamic var ratecount = 0
     dynamic var status : String!
@@ -34,9 +34,7 @@ class Story: Object {
     dynamic var sourceID = 0
     
     var chapters = List<Chapter>()
-    
-    
-    
+
     required convenience init?(_ map: Map) {
         self.init()
         mapping(map)
@@ -64,7 +62,7 @@ extension Story : Mappable {
         chapter <- map["chapter"]
         rate <- map["rate"]
         totalChapters <- map["number_chapters"]
-        chapters <- (map["last_chapters"], ListTransform<Chapter>())
+//        chapters <- (map["last_chapters"], ListTransform<Chapter>())
         ratecount <- map["ratecount"]
         created_at <- (map["created_at"],StoryDateTransform())
         updated_at <- (map["updated_at"],StoryDateTransform())
@@ -77,7 +75,8 @@ extension Story  {
     
     class func getNew( page currentPage: Int, complate:(result: [Story])-> Void){
 
-        let API_URL = "http://ebook2.local.192.168.1.15.xip.io/api/story?page=\(currentPage)"
+//        let API_URL = "http://story.local.192.168.1.15.xip.io/api/story?page=\(currentPage)"
+        let API_URL = "http://story.iosmobi.com/api/story?page=\(currentPage)"
         
         Alamofire.request(.GET, API_URL).responseJSON { (responseData) -> Void in
             
