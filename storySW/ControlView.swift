@@ -34,6 +34,7 @@ class ControlView: UIView {
     }
     
     @IBAction func fontDidTouch(sender: AnyObject) {
+        self.delegate?.fontDidTouch!()
     }
     
 

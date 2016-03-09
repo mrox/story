@@ -39,9 +39,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         UINavigationBar.appearance().tintColor           = UIColor.whiteColor()
         
-        
+        self.defaultReaderStyle()
         
         return true
+    }
+    
+    func defaultReaderStyle(){
+        let prefs = NSUserDefaults.standardUserDefaults()
+        let fontSize = prefs.valueForKey("fontSize")
+
+        if (fontSize == nil) { prefs.setFloat(14, forKey: "fontSize") }
     }
     
     func removeTabbarItemText(tabBar: UITabBarController) {

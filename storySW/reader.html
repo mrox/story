@@ -8,15 +8,11 @@
         <style type="text/css">
 
         	body {
-				display: inline;
-				/*height: 90vh;*/
+				/*background-color: lightgrey;*/
         	}
 			#artice {
-				float: left;
-				height: 92vh;
+				height: 94vh;
 				-webkit-column-width: 100vw;
-				-webkit-column-gap: 20px;
-				padding: 10px;
 				text-align: justify;
 			}
         </style>
@@ -26,10 +22,21 @@
 	        <h1 id="title">|TITLE|</h1>
 	        <p id="content">|CONTENT|</p>
 		</div>
-		<!-- <p>Hết Chương</p> -->
     </body>
     
 <script>
+	$(document).ready(function(){
+		// var w = $("#artice").width();
+		// $("#space").css("margin-left", w);
+		// $("#artice").width(w+10);
+	    // alert($(document).width());
+	    // alert($( window ).width());
+	});
+
+	function changeFontSize(fontSize) {
+
+		$("#content").css({"font-size":fontSize+"px"});
+	}
 
 	function setTitle(text){
 		$("#title").html(text);

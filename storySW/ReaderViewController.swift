@@ -22,6 +22,8 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
     
     var webView = UIWebView()
     
+    let prefs = NSUserDefaults.standardUserDefaults()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -31,7 +33,7 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
         self.webView.delegate = self
         self.webView.scrollView.bounces = false
         self.webView.scrollView.pagingEnabled = true
-        self.webView.backgroundColor = UIColor.blueColor()
+        self.webView.backgroundColor = UIColor.clearColor()
         self.view.addSubview(self.webView)
         
         
@@ -69,7 +71,6 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
             
             self.webView.loadHTMLString(content as String, baseURL: HTML)
             
-            print(content)
         }
         catch {
             print("error load local file")
@@ -80,10 +81,33 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
+        self.styleReaderView()
         
-//        webView .stringByEvaluatingJavaScriptFromString("setTitle('abcdef');")
-//        webView .stringByEvaluatingJavaScriptFromString("setContent('\(content)');")
-
+    }
+    func styleReaderView(){
+        
+        webView.stringByEvaluatingJavaScriptFromString("changeFontSize(\(prefs.floatForKey("fontSize")));")
+//        webView.stringByEvaluatingJavaScriptFromString("changeStyle(\(prefs.stringForKey("style")));")
+//        webView.stringByEvaluatingJavaScriptFromString("changeFontFamily(\(prefs.stringForKey("style")));")
+        self.resizeContent()
+        
+    }
+    
+    func resizeContent(){
+        
+        let triggerTime = (Int64(NSEC_PER_SEC) * 2)
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+            let screenWidth = self.view.bounds.width
+            
+            var size = self.webView.scrollView.contentSize
+            
+            let space = screenWidth-(size.width % screenWidth)
+            
+            size.width =  self.webView.scrollView.contentSize.width + space
+            
+            self.webView.scrollView.contentSize = size
+        })
     }
 
     
@@ -139,8 +163,16 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
     }
     
     func fontDidTouch() {
-        print("reload")
-       //        self.webView.reload()
+        
+        var font = prefs.floatForKey("fontSize")
+        
+        font += 2
+        
+        if font >= 24 { font = 14 }
+        
+        prefs.setFloat(font, forKey: "fontSize")
+        
+        self.styleReaderView()
     }
 
 
