@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecognizerDelegate, WKNavigationDelegate {
+class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecognizerDelegate, UIWebViewDelegate {
 
     var scrollView: UIScrollView!
     
@@ -20,23 +20,25 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
     var controlView = ControlView()
     var controlIsHiden = true
     
-    var webView = WKWebView()
+    var webView = UIWebView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
 //        var config = WKWebViewConfiguration()
         
-        self.webView = WKWebView(frame: self.view.bounds)
-        self.webView.navigationDelegate = self
+        self.webView = UIWebView(frame: self.view.bounds)
+        self.webView.delegate = self
         self.webView.scrollView.bounces = false
         self.webView.scrollView.pagingEnabled = true
+        self.webView.backgroundColor = UIColor.blueColor()
         self.view.addSubview(self.webView)
         
         
         Chapter.getContent(chapter.id) { (result) -> Void in
             
             self.chapter = result
+            self.chapter.content = self.chapter.content.stringByReplacingOccurrencesOfString("\n", withString: "<br />")
             self.htmlText()
             
         }
@@ -57,26 +59,32 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
     }
     
     func htmlText() {
+        
         let HTML = NSBundle.mainBundle().URLForResource("reader", withExtension: "html")
-        let myRequest = NSURLRequest(URL: HTML!);
-        self.webView.loadRequest(myRequest)
-    }
-    
-    func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
-    
-        print("---\(self.chapter.content)---")
-        let content = self.chapter.content.stringByReplacingOccurrencesOfString("\n", withString: "<br />")
 
-        webView.evaluateJavaScript("setTitle('\(self.chapter.name)');") { (result, error) -> Void in
-            print(result)
+        do {
+            var content = try NSString(contentsOfFile: (HTML?.path)!, encoding: NSUTF8StringEncoding)
+            content = content.stringByReplacingOccurrencesOfString("|TITLE|", withString: self.chapter.name)
+            content = content.stringByReplacingOccurrencesOfString("|CONTENT|", withString: self.chapter.content)
+            
+            self.webView.loadHTMLString(content as String, baseURL: HTML)
+            
+            print(content)
+        }
+        catch {
+            print("error load local file")
         }
         
-        webView.evaluateJavaScript("setContent('\(content)');") { (result, error) -> Void in
-
-        }
         
+//        self.webView.loadRequest(myRequest)
     }
     
+    func webViewDidFinishLoad(webView: UIWebView) {
+        
+//        webView .stringByEvaluatingJavaScriptFromString("setTitle('abcdef');")
+//        webView .stringByEvaluatingJavaScriptFromString("setContent('\(content)');")
+
+    }
 
     
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -132,10 +140,7 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
     
     func fontDidTouch() {
         print("reload")
-        self.webView.evaluateJavaScript("setTitle()") { (result, error) -> Void in
-            print(error)
-        }
-//        self.webView.reload()
+       //        self.webView.reload()
     }
 
 
