@@ -7,32 +7,36 @@
 //
 
 import UIKit
+import WebKit
 
-
-class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecognizerDelegate {
+class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecognizerDelegate, WKNavigationDelegate {
 
     var scrollView: UIScrollView!
     
     var chapter = Chapter()
     var textStorage = NSTextStorage()
     var layoutManager = NSLayoutManager()
-    var content = NSMutableAttributedString()
+    var content = String()
     var controlView = ControlView()
     var controlIsHiden = true
     
-    var webView = UIWebView()
+    var webView = WKWebView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.webView = UIWebView.init(frame: self.view.bounds)
+//        var config = WKWebViewConfiguration()
+        
+        self.webView = WKWebView(frame: self.view.bounds)
+        self.webView.navigationDelegate = self
+        self.webView.scrollView.bounces = false
+        self.webView.scrollView.pagingEnabled = true
         self.view.addSubview(self.webView)
         
         
         Chapter.getContent(chapter.id) { (result) -> Void in
-            print(result)
-            self.content = NSMutableAttributedString.init(string: result.content)
             
+            self.chapter = result
             self.htmlText()
             
         }
@@ -50,30 +54,34 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
         self.view.addSubview(self.controlView)
         
         
-        
     }
     
     func htmlText() {
-        var HTML = NSBundle.mainBundle().URLForResource("reader", withExtension: "html")
+        let HTML = NSBundle.mainBundle().URLForResource("reader", withExtension: "html")
         let myRequest = NSURLRequest(URL: HTML!);
         self.webView.loadRequest(myRequest)
-//
-//        let HTMLDocumentPath = NSBundle.mainBundle().pathForResource("reader", ofType: "html")
-//        let HTMLString: NSString?
-//        
-//        do {
-//            HTMLString = try NSString(contentsOfFile: HTMLDocumentPath!, encoding: NSUTF8StringEncoding)
-//        } catch {
-//            HTMLString = nil
-//        }
-//        
-//        self.webView.loadHTMLString(HTMLString as! String, baseURL: nil)
     }
+    
+    func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
+    
+        print("---\(self.chapter.content)---")
+        let content = self.chapter.content.stringByReplacingOccurrencesOfString("\n", withString: "<br />")
+
+        webView.evaluateJavaScript("setTitle('\(self.chapter.name)');") { (result, error) -> Void in
+            print(result)
+        }
+        
+        webView.evaluateJavaScript("setContent('\(content)');") { (result, error) -> Void in
+
+        }
+        
+    }
+    
+
     
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
-    
     
     
     override func didReceiveMemoryWarning() {
@@ -120,6 +128,14 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
     // MARK: control
     func closeDidTouch() {
         self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func fontDidTouch() {
+        print("reload")
+        self.webView.evaluateJavaScript("setTitle()") { (result, error) -> Void in
+            print(error)
+        }
+//        self.webView.reload()
     }
 
 

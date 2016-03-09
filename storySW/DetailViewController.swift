@@ -178,7 +178,6 @@ class DetailViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.section == 0 { return }
         let chapter = self.chapters[indexPath.row]
-        print(chapter)
 
         let detailVC: ReaderViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("readerVC") as! ReaderViewController
         

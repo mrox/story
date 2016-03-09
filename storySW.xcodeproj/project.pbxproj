@@ -21,6 +21,7 @@
 		4C73871B1C607B540083F105 /* ReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C73871A1C607B540083F105 /* ReaderViewController.swift */; };
 		4C7E9B631C5B669600A52676 /* UIViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E9B621C5B669600A52676 /* UIViewControllerHelper.swift */; };
 		4CBBE5CD1C72D794001810A1 /* reader.html in Resources */ = {isa = PBXBuildFile; fileRef = 4CBBE5CC1C72D794001810A1 /* reader.html */; };
+		4CC180781C87EACE00D8CB45 /* jquery-2.2.1.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 4CC180771C87EACE00D8CB45 /* jquery-2.2.1.min.js */; };
 		4CC2E88D1C561769007AC7D8 /* RealmTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC2E88C1C561769007AC7D8 /* RealmTransform.swift */; };
 		4CC4ED521C4F276A00506F13 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC4ED511C4F276A00506F13 /* AppDelegate.swift */; };
 		4CC4ED571C4F276A00506F13 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4CC4ED551C4F276A00506F13 /* Main.storyboard */; };
@@ -70,6 +71,7 @@
 		4C73871A1C607B540083F105 /* ReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaderViewController.swift; sourceTree = "<group>"; };
 		4C7E9B621C5B669600A52676 /* UIViewControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerHelper.swift; path = Extension/UIViewControllerHelper.swift; sourceTree = "<group>"; };
 		4CBBE5CC1C72D794001810A1 /* reader.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = reader.html; sourceTree = "<group>"; };
+		4CC180771C87EACE00D8CB45 /* jquery-2.2.1.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-2.2.1.min.js"; sourceTree = "<group>"; };
 		4CC2E88C1C561769007AC7D8 /* RealmTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealmTransform.swift; path = Extension/RealmTransform.swift; sourceTree = "<group>"; };
 		4CC4ED4E1C4F276A00506F13 /* storySW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = storySW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4CC4ED511C4F276A00506F13 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				4CFB8C401C62EE6400D6EC80 /* ControlView.xib */,
 				4CBBE5CC1C72D794001810A1 /* reader.html */,
 				4C47B6C61C733B3A0008FB18 /* some_image.jpg */,
+				4CC180771C87EACE00D8CB45 /* jquery-2.2.1.min.js */,
 			);
 			name = Reader;
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CFB8C411C62EE6400D6EC80 /* ControlView.xib in Resources */,
+				4CC180781C87EACE00D8CB45 /* jquery-2.2.1.min.js in Resources */,
 				4C47B6C71C733B3A0008FB18 /* some_image.jpg in Resources */,
 				4CBBE5CD1C72D794001810A1 /* reader.html in Resources */,
 				4CC4ED5C1C4F276A00506F13 /* LaunchScreen.storyboard in Resources */,

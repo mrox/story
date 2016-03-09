@@ -1,17 +1,44 @@
 <!doctype html>
 <html>
     <head>
+    	<meta charset="UTF-8"> 
+    	<meta name="viewport" content="height=device-height, width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <link rel="stylesheet" href="your_styles.css" type="text/css">
-            <script src="your_javascript.js"></script>
-            </head>
-    <body>
-        <h1>Big Title</h1>
-        
-        <!-- Again, all bundle resources must have unique filenames -->
-<!--        <img src="some_image.jpg" width="100%">-->
+        <script src="jquery-2.2.1.min.js"></script>
+        <style type="text/css">
 
-            <!-- Example interaction -->
-            <button id="exampleButton" onclick="document.getElementById('debug').innerHTML='Was clicked';">Click</button>
-            <p id="debug"></p>
-            </body>
+        	body {
+				display: inline;
+				height: 97vh;
+        	}
+			#artice {
+				float: left;
+				height: 97vh;
+				-webkit-column-width: 100vw;
+				-webkit-column-gap: 20px;
+				padding: 10px;
+				text-align: justify;
+			}
+        </style>
+    </head>
+    <body>
+    	<div id="artice">
+	        <h1 id="title"></h1>
+	        <p id="content"></p>
+		</div>
+		<!-- <p>Hết Chương</p> -->
+    </body>
+    
+<script>
+
+	function setTitle(text){
+		$("#title").html(text);
+		return text;
+	}
+
+	function setContent(text){
+		$("#content").html(text);
+	}
+
+</script>
 </html>
