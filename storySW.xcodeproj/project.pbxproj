@@ -20,6 +20,8 @@
 		4C47B6C71C733B3A0008FB18 /* some_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4C47B6C61C733B3A0008FB18 /* some_image.jpg */; };
 		4C73871B1C607B540083F105 /* ReaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C73871A1C607B540083F105 /* ReaderViewController.swift */; };
 		4C7E9B631C5B669600A52676 /* UIViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E9B621C5B669600A52676 /* UIViewControllerHelper.swift */; };
+		4C8791DD1C8FEE6600042E5F /* ParagraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8791DC1C8FEE6600042E5F /* ParagraphView.swift */; };
+		4C8791DF1C8FEE8800042E5F /* ParagraphView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C8791DE1C8FEE8800042E5F /* ParagraphView.xib */; };
 		4CBBE5CD1C72D794001810A1 /* reader.html in Resources */ = {isa = PBXBuildFile; fileRef = 4CBBE5CC1C72D794001810A1 /* reader.html */; };
 		4CC180781C87EACE00D8CB45 /* jquery-2.2.1.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 4CC180771C87EACE00D8CB45 /* jquery-2.2.1.min.js */; };
 		4CC2E88D1C561769007AC7D8 /* RealmTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC2E88C1C561769007AC7D8 /* RealmTransform.swift */; };
@@ -70,6 +72,8 @@
 		4C47B6C61C733B3A0008FB18 /* some_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = some_image.jpg; sourceTree = "<group>"; };
 		4C73871A1C607B540083F105 /* ReaderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReaderViewController.swift; sourceTree = "<group>"; };
 		4C7E9B621C5B669600A52676 /* UIViewControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerHelper.swift; path = Extension/UIViewControllerHelper.swift; sourceTree = "<group>"; };
+		4C8791DC1C8FEE6600042E5F /* ParagraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParagraphView.swift; sourceTree = "<group>"; };
+		4C8791DE1C8FEE8800042E5F /* ParagraphView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParagraphView.xib; sourceTree = "<group>"; };
 		4CBBE5CC1C72D794001810A1 /* reader.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = reader.html; sourceTree = "<group>"; };
 		4CC180771C87EACE00D8CB45 /* jquery-2.2.1.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-2.2.1.min.js"; sourceTree = "<group>"; };
 		4CC2E88C1C561769007AC7D8 /* RealmTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealmTransform.swift; path = Extension/RealmTransform.swift; sourceTree = "<group>"; };
@@ -185,6 +189,8 @@
 				4C73871A1C607B540083F105 /* ReaderViewController.swift */,
 				4CFB8C3E1C62EE5100D6EC80 /* ControlView.swift */,
 				4CFB8C401C62EE6400D6EC80 /* ControlView.xib */,
+				4C8791DC1C8FEE6600042E5F /* ParagraphView.swift */,
+				4C8791DE1C8FEE8800042E5F /* ParagraphView.xib */,
 				4CBBE5CC1C72D794001810A1 /* reader.html */,
 				4C47B6C61C733B3A0008FB18 /* some_image.jpg */,
 				4CC180771C87EACE00D8CB45 /* jquery-2.2.1.min.js */,
@@ -362,6 +368,7 @@
 				4CFB8C411C62EE6400D6EC80 /* ControlView.xib in Resources */,
 				4CC180781C87EACE00D8CB45 /* jquery-2.2.1.min.js in Resources */,
 				4C47B6C71C733B3A0008FB18 /* some_image.jpg in Resources */,
+				4C8791DF1C8FEE8800042E5F /* ParagraphView.xib in Resources */,
 				4CBBE5CD1C72D794001810A1 /* reader.html in Resources */,
 				4CC4ED5C1C4F276A00506F13 /* LaunchScreen.storyboard in Resources */,
 				4CC4ED591C4F276A00506F13 /* Assets.xcassets in Resources */,
@@ -445,6 +452,7 @@
 				4C3FEBD21C5A298800C1C9A9 /* imageColor.swift in Sources */,
 				4CD68C0E1C59B48C00413988 /* ChapterCell.swift in Sources */,
 				4C3FEBD01C5A258800C1C9A9 /* Tabbar.swift in Sources */,
+				4C8791DD1C8FEE6600042E5F /* ParagraphView.swift in Sources */,
 				4C73871B1C607B540083F105 /* ReaderViewController.swift in Sources */,
 				4CC2E88D1C561769007AC7D8 /* RealmTransform.swift in Sources */,
 				4CC4ED821C4F2F4200506F13 /* HomeCell.swift in Sources */,

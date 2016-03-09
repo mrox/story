@@ -8,7 +8,22 @@
 
 import UIKit
 
+let FONT_FAMILY_DEFAULT_KEY = "fontFamilyDefaultKey"
+let READER_STYLE_DEFAULT_KEY = "readerStyleDefaultKey"
+
+let GEORGIAKEY = 1
+let TIMENEWROMANKEY = 2
+let HELVETICAKEY = 3
+
+let WHITESTYLE = 1
+let BLACKSTYLE = 2
+let SEPIASTYLY = 3
+
+//helveticaButton
+
 @UIApplicationMain
+
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
@@ -32,7 +47,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.removeTabbarItemText(tabbar)
         
-    
         
         UINavigationBar.appearance().barTintColor        = UIColor(red: 0.31, green: 0.42, blue: 0.64, alpha: 1)
         UINavigationBar.appearance().translucent         = false;
@@ -46,9 +60,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func defaultReaderStyle(){
         let prefs = NSUserDefaults.standardUserDefaults()
+        
         let fontSize = prefs.valueForKey("fontSize")
-
         if (fontSize == nil) { prefs.setFloat(14, forKey: "fontSize") }
+        
+        let fontFamily = prefs.stringForKey(FONT_FAMILY_DEFAULT_KEY)
+        if (fontFamily == nil) { prefs.setValue(TIMENEWROMANKEY, forKey: FONT_FAMILY_DEFAULT_KEY)}
+        
+        let rStyle = prefs.valueForKey(READER_STYLE_DEFAULT_KEY)
+        if (rStyle == nil) { prefs.setValue(WHITESTYLE, forKey: READER_STYLE_DEFAULT_KEY)}
     }
     
     func removeTabbarItemText(tabBar: UITabBarController) {

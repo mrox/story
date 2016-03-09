@@ -8,13 +8,14 @@
         <style type="text/css">
 
         	body {
-				/*background-color: lightgrey;*/
+
         	}
 			#artice {
 				height: 94vh;
 				-webkit-column-width: 100vw;
 				text-align: justify;
 			}
+
         </style>
     </head>
     <body>
@@ -38,14 +39,31 @@
 		$("#content").css({"font-size":fontSize+"px"});
 	}
 
-	function setTitle(text){
-		$("#title").html(text);
-		return text;
+	function changeFontFamily(fontFamily) {
+
+		if(fontFamily == 1) {
+			$("body").css({"font-family":"Georgia"});
+		}
+		else if(fontFamily == 2){
+			$("body").css({"font-family":"Times New Roman"});
+		}
+		else{
+			$("body").css({"font-family":"Helvetica"});
+		}
 	}
 
-	function setContent(text){
-		$("#content").html(text);
+	function changeReaderStyle(style) {
+		if (style == 1) {
+			$("html").css({"background-color": "#FFFFFF", "color": "#000000"}); 
+		}
+		else if(style == 2){
+			$("html").css({"background-color": "#000000", "color": "#FFFFFF"}); 
+		}
+		else {
+			$("html").css({"background-color": "#F9F3E8", "color": "#603E22"}); 
+		}
 	}
+
 
 </script>
 </html>

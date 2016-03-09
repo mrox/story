@@ -20,8 +20,10 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
     var controlView = ControlView()
     var controlIsHiden = true
     
-    var webView = UIWebView()
+    var paragraphView = ParagraphView()
     
+    var webView = UIWebView()
+    var process = false
     let prefs = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
@@ -33,7 +35,7 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
         self.webView.delegate = self
         self.webView.scrollView.bounces = false
         self.webView.scrollView.pagingEnabled = true
-        self.webView.backgroundColor = UIColor.clearColor()
+//        self.webView.backgroundColor = UIColor.clearColor()
         self.view.addSubview(self.webView)
         
         
@@ -57,8 +59,73 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
         self.controlView.alpha = 0.0
         self.view.addSubview(self.controlView)
         
+        //add Paragraph View
+        self.paragraphView = ParagraphView.instanceFromNib()
+        
+        
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "fontMinus", name: FONTMINUS, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "fontPlus", name: FONTPLUS, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "fontFamilyChange", name: FONTCHANGE, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "styleChange", name: READER_STYLE_DEFAULT_KEY, object: nil)
         
     }
+    //MARK: - Controls
+    
+    func closeDidTouch() {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    //show Paragraph View
+    func fontDidTouch() {
+        self.controlView.addSubview(self.paragraphView)
+    }
+
+    
+    func fontMinus() {
+        
+        var font = prefs.floatForKey("fontSize")
+        
+        font -= 2
+        
+        print("FONT MINUS: \(font)")
+        
+        if font <= 14 {
+            return
+        }
+        
+        prefs.setFloat(font, forKey: "fontSize")
+        
+        self.styleReaderView()
+    }
+
+    func fontPlus() {
+        
+        var font = prefs.floatForKey("fontSize")
+        
+        font += 2
+        
+        print("FONT PLUS : \(font)")
+        
+        if font >= 24 {
+            return
+        }
+        
+        prefs.setFloat(font, forKey: "fontSize")
+        
+        self.styleReaderView()
+    }
+    
+    func fontFamilyChange() {
+        self.styleReaderView()
+    }
+    
+    func styleChange() {
+        self.styleReaderView()
+        
+    }
+    
+    //MARK: WebView Contents
     
     func htmlText() {
         
@@ -76,8 +143,6 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
             print("error load local file")
         }
         
-        
-//        self.webView.loadRequest(myRequest)
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
@@ -85,43 +150,53 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
         
     }
     func styleReaderView(){
-        
+
         webView.stringByEvaluatingJavaScriptFromString("changeFontSize(\(prefs.floatForKey("fontSize")));")
-//        webView.stringByEvaluatingJavaScriptFromString("changeStyle(\(prefs.stringForKey("style")));")
-//        webView.stringByEvaluatingJavaScriptFromString("changeFontFamily(\(prefs.stringForKey("style")));")
+        webView.stringByEvaluatingJavaScriptFromString("changeFontFamily(\(prefs.integerForKey(FONT_FAMILY_DEFAULT_KEY)));")
+        webView.stringByEvaluatingJavaScriptFromString("changeReaderStyle(\(prefs.integerForKey(READER_STYLE_DEFAULT_KEY)));")
+        
+        if(prefs.integerForKey(READER_STYLE_DEFAULT_KEY) == BLACKSTYLE) {
+            self.webView.scrollView.backgroundColor = UIColor.blackColor()
+            self.webView.backgroundColor = UIColor.blackColor()
+            self.view.backgroundColor = UIColor.blackColor()
+        }
+        else if(prefs.integerForKey(READER_STYLE_DEFAULT_KEY) == WHITESTYLE){
+            self.webView.scrollView.backgroundColor = UIColor.whiteColor()
+            self.webView.backgroundColor = UIColor.whiteColor()
+            self.view.backgroundColor = UIColor.whiteColor()
+        }
+        else {
+            self.webView.scrollView.backgroundColor = UIColor(red:0.98, green:0.95, blue:0.91, alpha:1)
+            self.webView.backgroundColor = UIColor(red:0.98, green:0.95, blue:0.91, alpha:1)
+            self.view.backgroundColor = UIColor(red:0.98, green:0.95, blue:0.91, alpha:1)
+        }
+
         self.resizeContent()
         
     }
     
     func resizeContent(){
-        
-        let triggerTime = (Int64(NSEC_PER_SEC) * 2)
+        if self.process {return}
+        self.process = true;
+        let triggerTime = (Int64(NSEC_PER_SEC) * 1)
         
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+            
             let screenWidth = self.view.bounds.width
-            
             var size = self.webView.scrollView.contentSize
-            
             let space = screenWidth-(size.width % screenWidth)
-            
             size.width =  self.webView.scrollView.contentSize.width + space
-            
             self.webView.scrollView.contentSize = size
+            self.process = false
         })
     }
 
-    
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
-    }
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    // MARK: - touch
+    // MARK: - Touch
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         self.tapGesture()
     }
@@ -136,6 +211,12 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
             self.hideControl()
         }
     }
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
+    // MARK: Show/Hide Controls
     
     func showControl() {
         UIApplication.sharedApplication().setStatusBarHidden(false, withAnimation: .Fade)
@@ -153,28 +234,12 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
         UIView.animateWithDuration(0.2, animations: { () -> Void in
             
             self.controlView.alpha = 0.0
+            self.paragraphView.removeFromSuperview()
             
         })
     }
     
-    // MARK: control
-    func closeDidTouch() {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
     
-    func fontDidTouch() {
-        
-        var font = prefs.floatForKey("fontSize")
-        
-        font += 2
-        
-        if font >= 24 { font = 14 }
-        
-        prefs.setFloat(font, forKey: "fontSize")
-        
-        self.styleReaderView()
-    }
-
 
     /*
     // MARK: - Navigation
