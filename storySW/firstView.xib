@@ -95,8 +95,10 @@
             <nil key="simulatedBottomBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <connections>
+                <outlet property="chapterName" destination="MTp-vT-UEu" id="YXK-vk-Tyz"/>
                 <outlet property="nextButton" destination="Yf0-IG-xt6" id="ReR-Gh-Wdg"/>
                 <outlet property="prevButton" destination="H76-ip-UGG" id="vNt-06-mLP"/>
+                <outlet property="storyName" destination="mjk-Ip-tYl" id="YZF-v5-B4u"/>
             </connections>
         </view>
     </objects>

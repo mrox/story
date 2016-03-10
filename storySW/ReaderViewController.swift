@@ -50,11 +50,12 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
 //            fView.addGestureRecognizer(tapDetect)
         }
     }
-//    var lView = LastView() {
-//        didSet {
-//            lView.
-//        }
-//    }
+    var lView = LastView() {
+        didSet {
+            lView.prevChapter.addTarget(self, action: "prevChapter", forControlEvents: .TouchUpInside)
+            lView.nextChapter.addTarget(self, action: "nextChapter", forControlEvents: .TouchUpInside)
+        }
+    }
     
     var scrollView = UIScrollView(){
         didSet{
@@ -108,21 +109,30 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
     }
     
     func settingExtendView(){
-        self.fView = firstView.instanceFromNib()
+        self.fView = firstView.instanceFromNib(self.chapter)
+        
         
         self.scrollView.addSubview(fView)
         
-        let lView = LastView.instanceFromNib(CGRectMake(self.view.frame.width*2, 0, self.view.frame.width, self.view.frame.height))
+        self.lView = LastView.instanceFromNib(CGRectMake(self.view.frame.width*2, 0, self.view.frame.width, self.view.frame.height))
         self.scrollView.addSubview(lView)
     }
     
     func prevChapter(){
-        print("prevChapter")
-        self.chapter.id = self.chapter.prevChapter
+        print("Prev Chapter")
+        if self.chapter.prevChapter != nil {
+            self.chapter.id = self.chapter.prevChapter
+            self.viewDidLoad()
+
+        }
     }
     func nextChapter(){
-        self.chapter.id = self.chapter.nextChapter
-        self.viewDidLoad()
+        print("Prev Chapter")
+        if self.chapter.nextChapter != nil {
+            self.chapter.id = self.chapter.nextChapter
+            self.viewDidLoad()
+        }
+        
     }
     
     //MARK: - Controls

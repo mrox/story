@@ -73,6 +73,10 @@
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <connections>
+                <outlet property="nextChapter" destination="duF-sv-bmO" id="8RN-oc-waM"/>
+                <outlet property="prevChapter" destination="mcN-Tg-S2s" id="ViR-Eq-fP5"/>
+            </connections>
         </view>
     </objects>
 </document>

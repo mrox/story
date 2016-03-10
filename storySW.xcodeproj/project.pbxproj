@@ -11,7 +11,6 @@
 		4C13DBA31C522A470021613E /* NSDate+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C13DBA01C522A470021613E /* NSDate+Formatter.swift */; };
 		4C13DBA41C522A470021613E /* UIButton+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C13DBA11C522A470021613E /* UIButton+Border.swift */; };
 		4C13DBA51C522A470021613E /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C13DBA21C522A470021613E /* UIColorExtensions.swift */; };
-		4C1BE8F01C9141D90033FF7C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1BE8EF1C9141D90033FF7C /* main.m */; };
 		4C1E2ECA1C507A9300FE8B5C /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E2EC91C507A9300FE8B5C /* Story.swift */; };
 		4C1E2ECC1C50845F00FE8B5C /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E2ECB1C50845F00FE8B5C /* Chapter.swift */; };
 		4C34F72D1C5747B3004D4D4C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C34F72C1C5747B3004D4D4C /* DetailViewController.swift */; };
@@ -69,7 +68,6 @@
 		4C13DBA01C522A470021613E /* NSDate+Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDate+Formatter.swift"; path = "Extension/NSDate+Formatter.swift"; sourceTree = "<group>"; };
 		4C13DBA11C522A470021613E /* UIButton+Border.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIButton+Border.swift"; path = "Extension/UIButton+Border.swift"; sourceTree = "<group>"; };
 		4C13DBA21C522A470021613E /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtensions.swift; path = Extension/UIColorExtensions.swift; sourceTree = "<group>"; };
-		4C1BE8EF1C9141D90033FF7C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4C1E2EC91C507A9300FE8B5C /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		4C1E2ECB1C50845F00FE8B5C /* Chapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
 		4C34F72C1C5747B3004D4D4C /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -218,7 +216,6 @@
 		4CC4ED451C4F276A00506F13 = {
 			isa = PBXGroup;
 			children = (
-				4C1BE8EF1C9141D90033FF7C /* main.m */,
 				4CC4ED501C4F276A00506F13 /* storySW */,
 				4CC4ED651C4F276A00506F13 /* storySWTests */,
 				4CC4ED701C4F276A00506F13 /* storySWUITests */,
@@ -486,7 +483,6 @@
 				4C34F72D1C5747B3004D4D4C /* DetailViewController.swift in Sources */,
 				4C1E2ECA1C507A9300FE8B5C /* Story.swift in Sources */,
 				4CFB8C3F1C62EE5100D6EC80 /* ControlView.swift in Sources */,
-				4C1BE8F01C9141D90033FF7C /* main.m in Sources */,
 				4C13DBA51C522A470021613E /* UIColorExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

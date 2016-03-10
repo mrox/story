@@ -15,6 +15,8 @@ class LastView: UIView {
         view.frame = frame
         return view
     }
+    @IBOutlet weak var prevChapter: ButtonExtender!
+    @IBOutlet weak var nextChapter: ButtonExtender!
 
 
 }
