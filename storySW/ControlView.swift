@@ -15,7 +15,7 @@ import UIKit
     optional func fontDidTouch()
     optional func bookmarkDidTouch()
     optional func listChaptersDidTouch()
-    
+    optional func pageChange(page: Int)
 }
 
 class ControlView: UIView {
@@ -26,6 +26,7 @@ class ControlView: UIView {
     @IBOutlet weak var bottomView: UIView!
     @IBOutlet weak var titleLabelView: UILabel!
     @IBOutlet weak var sliderView: UISlider!
+    @IBOutlet weak var pageLabel: UILabel!
     
     @IBAction func listChaptersDidTouch(sender: AnyObject) {
     }
@@ -46,12 +47,20 @@ class ControlView: UIView {
         self.delegate?.closeDidTouch!()
     }
     
+    @IBAction func pagesSlider(sender: UISlider) {
+        
+        self.delegate?.pageChange!(Int(sender.value));
+    }
+    
     class func instanceFromNib() -> ControlView {
         
         return UINib(nibName: "ControlView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! ControlView
     }
     
     func configView(){
+        self.sliderView.minimumValue = 1
+        self.sliderView.value = 1
+        
         self.topView.addBorder(.Bottom, color: UIColor.lightGrayColor(), width: 0.5)
         self.bottomView.addBorder(.Top, color: UIColor.lightGrayColor(), width: 0.5)
     }

@@ -9,6 +9,7 @@
 import UIKit
 import WebKit
 
+internal let SCROLL_DURATION = 0.2
 
 //reader View
 class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecognizerDelegate, UIWebViewDelegate {
@@ -30,12 +31,14 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
             self.webView.scrollView.pagingEnabled = true
             self.webView.scrollView.showsHorizontalScrollIndicator = false
             self.webView.scrollView.showsVerticalScrollIndicator = false
+            self.webView.scrollView.decelerationRate = UIScrollViewDecelerationRateFast
+            self.webView.scrollView.delegate = self
         }
     }
     
     var paragraphView = ParagraphView()
     var controlIsHiden = true
-    var process = false
+    var scrolling = false
     let prefs = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
@@ -54,7 +57,7 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
             
         }
         
-        let tapDetect = UITapGestureRecognizer.init(target: self, action: Selector("tapGesture"))
+        let tapDetect = UITapGestureRecognizer.init(target: self, action: Selector("tapGesture:"))
         tapDetect.delegate = self
         self.webView.addGestureRecognizer(tapDetect)
         
@@ -74,6 +77,7 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "styleChange", name: READER_STYLE_DEFAULT_KEY, object: nil)
         
     }
+    
     //MARK: - Controls
     
     func closeDidTouch() {
@@ -129,6 +133,60 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
         
     }
     
+    func nextPage(){
+        var currentPoint = self.webView.scrollView.contentOffset
+        
+        if currentPoint.x <= (self.webView.scrollView.contentSize.width - self.webView.bounds.width) && !self.scrolling {
+            self.scrolling = !self.scrolling
+            currentPoint.x += self.webView.bounds.width
+            let rect = CGRectMake(currentPoint.x, 0, self.webView.bounds.width, self.webView.bounds.height)
+            
+            UIView.animateWithDuration(SCROLL_DURATION, animations: { () -> Void in
+                self.webView.scrollView.scrollRectToVisible(rect, animated: false)
+            }, completion: { (complete) -> Void in
+                self.scrolling = !self.scrolling
+                self.updatePage()
+            })
+            
+        }
+    }
+    
+    func previousPage(){
+        
+        var currentPoint = self.webView.scrollView.contentOffset
+        
+        if currentPoint.x <= (self.webView.scrollView.contentSize.width - self.webView.bounds.width) && !self.scrolling {
+            self.scrolling = !self.scrolling
+            currentPoint.x -= self.webView.bounds.width
+            let rect = CGRectMake(currentPoint.x, 0, self.webView.bounds.width, self.webView.bounds.height)
+            
+            UIView.animateWithDuration(SCROLL_DURATION, animations: { () -> Void in
+                self.webView.scrollView.scrollRectToVisible(rect, animated: false)
+                }, completion: { (complete) -> Void in
+                    self.scrolling = !self.scrolling
+                    self.updatePage()
+            })
+            
+        }
+        
+    }
+    
+    func updatePage(){
+        let maxPage = floor(self.webView.scrollView.contentSize.width/self.webView.bounds.width) + 1
+        let currentPage = floor(self.webView.scrollView.contentOffset.x/self.webView.bounds.width) + 1
+        
+        self.controlView.sliderView.maximumValue = Float(maxPage)
+        self.controlView.sliderView.value = Float(currentPage)
+        self.controlView.pageLabel.text = "\(currentPage)/\(maxPage)"
+        
+    }
+    
+    func pageChange(page: Int) {
+        let point = CGPointMake(CGFloat(page * Int(self.webView.bounds.width)), 0)
+        self.webView.scrollView.contentOffset = point
+        self.updatePage()
+    }
+    
     //MARK: WebView Contents
     
     func htmlText() {
@@ -152,6 +210,7 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
     func webViewDidFinishLoad(webView: UIWebView) {
         self.styleReaderView()
         self.fixContentSize()
+
     }
     
     func styleReaderView(){
@@ -189,21 +248,33 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
     
     // MARK: - Touch
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        
         let touch = touches.first! as UITouch
-        let location = touch.locationInView(self.view)
-        print(location)
-        self.tapGesture()
+        self.tapGesture(touch)
+        
     }
     
-    func tapGesture(){
-        self.controlIsHiden = !self.controlIsHiden
+    func tapGesture(recognizer: UITouch){
+
+        let location = recognizer.locationInView(self.view)
         
-        if !self.controlIsHiden {
-            self.showControl()
-        }
-        else {
+        if (!self.controlIsHiden) {
+            self.controlIsHiden = !self.controlIsHiden
             self.hideControl()
         }
+        else {
+            if (location.x <= 100) {
+                self.previousPage()
+            }
+            else if (location.x >= (self.view.bounds.width-100)) {
+                self.nextPage()
+            }
+            else {
+                self.controlIsHiden = !self.controlIsHiden
+                self.showControl();
+            }
+        }
+
     }
     
     func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -231,9 +302,6 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
             self.paragraphView.removeFromSuperview()
             
         })
-        
-        
-        
     }
     
     func fixContentSize(){
@@ -242,18 +310,21 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
         let space = screenWidth-(size.width % screenWidth)
         size.width =  self.webView.scrollView.contentSize.width + space
         self.webView.scrollView.contentSize = size
+        self.updatePage()
     }
     
-    
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
     
 }
+
+extension ReaderViewController: UIScrollViewDelegate {
+   
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        self.updatePage()
+    }
+    
+//    func scrollViewd
+   
+}
+
+
+
