@@ -10,32 +10,37 @@ import UIKit
 import WebKit
 
 class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecognizerDelegate, UIWebViewDelegate {
-
-    var scrollView: UIScrollView!
     
     var chapter = Chapter()
-    var textStorage = NSTextStorage()
-    var layoutManager = NSLayoutManager()
-    var content = String()
-    var controlView = ControlView()
-    var controlIsHiden = true
+    var controlView = ControlView() {
+        didSet {
+            self.controlView.delegate = self
+            self.controlView.configView()
+            self.controlView.frame = self.view.bounds
+            self.hideControl()
+        }
+    }
+    
+    var webView = UIWebView() {
+        didSet {
+            self.webView.delegate = self
+            self.webView.scrollView.bounces = false
+            self.webView.scrollView.pagingEnabled = true
+            self.webView.scrollView.showsHorizontalScrollIndicator = false
+            self.webView.scrollView.showsVerticalScrollIndicator = false
+        }
+    }
     
     var paragraphView = ParagraphView()
-    
-    var webView = UIWebView()
+    var controlIsHiden = true
     var process = false
     let prefs = NSUserDefaults.standardUserDefaults()
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-
-//        var config = WKWebViewConfiguration()
         
         self.webView = UIWebView(frame: self.view.bounds)
-        self.webView.delegate = self
-        self.webView.scrollView.bounces = false
-        self.webView.scrollView.pagingEnabled = true
-//        self.webView.backgroundColor = UIColor.clearColor()
         self.view.addSubview(self.webView)
         
         
@@ -53,13 +58,10 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
         
         //add control view
         self.controlView = ControlView.instanceFromNib()
-        self.controlView.delegate = self
-        self.controlView.configView()
-        self.controlView.frame = self.view.bounds
-        self.controlView.alpha = 0.0
         self.view.addSubview(self.controlView)
         
-        //add Paragraph View
+        
+        //Create Paragraph View
         self.paragraphView = ParagraphView.instanceFromNib()
         
         
@@ -80,7 +82,7 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
     func fontDidTouch() {
         self.controlView.addSubview(self.paragraphView)
     }
-
+    
     
     func fontMinus() {
         
@@ -98,7 +100,7 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
         
         self.styleReaderView()
     }
-
+    
     func fontPlus() {
         
         var font = prefs.floatForKey("fontSize")
@@ -130,7 +132,7 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
     func htmlText() {
         
         let HTML = NSBundle.mainBundle().URLForResource("reader", withExtension: "html")
-
+        
         do {
             var content = try NSString(contentsOfFile: (HTML?.path)!, encoding: NSUTF8StringEncoding)
             content = content.stringByReplacingOccurrencesOfString("|TITLE|", withString: self.chapter.name)
@@ -147,10 +149,11 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
     
     func webViewDidFinishLoad(webView: UIWebView) {
         self.styleReaderView()
-        
+        self.fixContentSize()
     }
+    
     func styleReaderView(){
-
+        
         webView.stringByEvaluatingJavaScriptFromString("changeFontSize(\(prefs.floatForKey("fontSize")));")
         webView.stringByEvaluatingJavaScriptFromString("changeFontFamily(\(prefs.integerForKey(FONT_FAMILY_DEFAULT_KEY)));")
         webView.stringByEvaluatingJavaScriptFromString("changeReaderStyle(\(prefs.integerForKey(READER_STYLE_DEFAULT_KEY)));")
@@ -160,6 +163,7 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
             self.webView.backgroundColor = UIColor.blackColor()
             self.view.backgroundColor = UIColor.blackColor()
         }
+            
         else if(prefs.integerForKey(READER_STYLE_DEFAULT_KEY) == WHITESTYLE){
             self.webView.scrollView.backgroundColor = UIColor.whiteColor()
             self.webView.backgroundColor = UIColor.whiteColor()
@@ -170,27 +174,12 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
             self.webView.backgroundColor = UIColor(red:0.98, green:0.95, blue:0.91, alpha:1)
             self.view.backgroundColor = UIColor(red:0.98, green:0.95, blue:0.91, alpha:1)
         }
-
-        self.resizeContent()
+        
         
     }
     
-    func resizeContent(){
-        if self.process {return}
-        self.process = true;
-        let triggerTime = (Int64(NSEC_PER_SEC) * 1)
-        
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
-            
-            let screenWidth = self.view.bounds.width
-            var size = self.webView.scrollView.contentSize
-            let space = screenWidth-(size.width % screenWidth)
-            size.width =  self.webView.scrollView.contentSize.width + space
-            self.webView.scrollView.contentSize = size
-            self.process = false
-        })
-    }
-
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -198,6 +187,9 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
     
     // MARK: - Touch
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let touch = touches.first! as UITouch
+        let location = touch.locationInView(self.view)
+        print(location)
         self.tapGesture()
     }
     
@@ -237,18 +229,29 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
             self.paragraphView.removeFromSuperview()
             
         })
+        
+        
+        
+    }
+    
+    func fixContentSize(){
+        let screenWidth = self.view.bounds.width
+        var size = self.webView.scrollView.contentSize
+        let space = screenWidth-(size.width % screenWidth)
+        size.width =  self.webView.scrollView.contentSize.width + space
+        self.webView.scrollView.contentSize = size
     }
     
     
-
+    
     /*
     // MARK: - Navigation
-
+    
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    // Get the new view controller using segue.destinationViewController.
+    // Pass the selected object to the new view controller.
     }
     */
-
+    
 }

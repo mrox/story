@@ -50,26 +50,18 @@ class ControlView: UIView {
         
         return UINib(nibName: "ControlView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! ControlView
     }
+    
     func configView(){
         self.topView.addBorder(.Bottom, color: UIColor.lightGrayColor(), width: 0.5)
         self.bottomView.addBorder(.Top, color: UIColor.lightGrayColor(), width: 0.5)
-//        self.topView.layer.shadowColor = UIColor.blackColor().CGColor
-//        self.topView.layer.shadowOpacity = 0.5
-//        self.topView.layer.shadowOffset = CGSizeZero
-//        self.topView.layer.shadowRadius = 0.5
-//        
-//        self.bottomView.layer.shadowColor = UIColor.blackColor().CGColor
-//        self.bottomView.layer.shadowOpacity = 0.5
-//        self.bottomView.layer.shadowOffset = CGSizeZero
-//        self.bottomView.layer.shadowRadius = 0.5
-
     }
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
+    
 
 }
+
+
+
+
+
+
+

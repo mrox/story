@@ -11,38 +11,71 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A7N-ts-eyF" userLabel="BGView">
-                    <rect key="frame" x="0.0" y="338" width="320" height="230"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A7N-ts-eyF" userLabel="BGView" customClass="ButtonExtender" customModule="storySW" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="323" width="320" height="245"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P80-dM-pfB">
-                            <rect key="frame" x="135" y="192" width="50" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P80-dM-pfB" customClass="ButtonExtender" customModule="storySW" customModuleProvider="target">
+                            <rect key="frame" x="116" y="197" width="88" height="30"/>
+                            <color key="backgroundColor" red="0.97647058819999999" green="0.95294117649999999" blue="0.90980392160000001" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="COu-tK-JDi"/>
-                                <constraint firstAttribute="width" constant="50" id="drs-fS-rG9"/>
+                                <constraint firstAttribute="width" constant="88" id="drs-fS-rG9"/>
                             </constraints>
-                            <state key="normal" title="Sepia"/>
+                            <state key="normal" title="Sepia">
+                                <color key="titleColor" red="0.37647058820000001" green="0.24313725489999999" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornurRadius">
+                                    <real key="value" value="6"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="0.37647058820000001" green="0.24313725489999999" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="sepiaStyleDidTouch:" destination="iN0-l3-epB" eventType="touchUpInside" id="CJv-2G-UbW"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4El-lw-Ahc">
-                            <rect key="frame" x="252" y="192" width="50" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4El-lw-Ahc" customClass="ButtonExtender" customModule="storySW" customModuleProvider="target">
+                            <rect key="frame" x="214" y="197" width="88" height="30"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="50" id="8ge-eW-AGK"/>
+                                <constraint firstAttribute="width" constant="88" id="8ge-eW-AGK"/>
                                 <constraint firstAttribute="height" constant="30" id="QTD-q4-E2d"/>
                             </constraints>
-                            <state key="normal" title="Black"/>
+                            <state key="normal" title="Black">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornurRadius">
+                                    <real key="value" value="6"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="blackStyleDidTouch:" destination="iN0-l3-epB" eventType="touchUpInside" id="EZH-fb-tzf"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4SV-tR-AnM">
-                            <rect key="frame" x="18" y="192" width="50" height="30"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4SV-tR-AnM" customClass="ButtonExtender" customModule="storySW" customModuleProvider="target">
+                            <rect key="frame" x="18" y="197" width="88" height="30"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="30" id="D6K-Tf-26e"/>
-                                <constraint firstAttribute="width" constant="50" id="rJu-Dz-fqj"/>
+                                <constraint firstAttribute="width" constant="88" id="rJu-Dz-fqj"/>
                             </constraints>
-                            <state key="normal" title="White"/>
+                            <state key="normal" title="White">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornurRadius">
+                                    <real key="value" value="6"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="whiteStyleDidTouch:" destination="iN0-l3-epB" eventType="touchUpInside" id="72l-Xy-2dI"/>
                             </connections>
@@ -87,26 +120,46 @@
                                 <action selector="fontHelveticaDidTouch:" destination="iN0-l3-epB" eventType="touchUpInside" id="exd-Pa-KSD"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pie-Ob-8Kq">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pie-Ob-8Kq" customClass="ButtonExtender" customModule="storySW" customModuleProvider="target">
                             <rect key="frame" x="18" y="11" width="138" height="30"/>
-                            <color key="backgroundColor" red="0.94509803920000002" green="0.76862745099999996" blue="0.058823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="138" id="Rla-Im-qVR"/>
                                 <constraint firstAttribute="height" constant="30" id="mOc-8w-nYW"/>
                             </constraints>
                             <state key="normal" title="A-"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="0.5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornurRadius">
+                                    <real key="value" value="6"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="fontMinusDidTouch:" destination="iN0-l3-epB" eventType="touchUpInside" id="N8X-LS-2vj"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eym-XT-5kT">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eym-XT-5kT" customClass="ButtonExtender" customModule="storySW" customModuleProvider="target">
                             <rect key="frame" x="164" y="11" width="138" height="30"/>
-                            <color key="backgroundColor" red="0.94509803920000002" green="0.76862745099999996" blue="0.058823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="138" id="Ve2-yG-3xt"/>
                                 <constraint firstAttribute="height" constant="30" id="cXf-LQ-N7v"/>
                             </constraints>
                             <state key="normal" title="A+"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="0.5"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornurRadius">
+                                    <real key="value" value="6"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                    <color key="value" red="0.59215686270000001" green="0.59215686270000001" blue="0.59215686270000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="fontPlusDidTouch:" destination="iN0-l3-epB" eventType="touchUpInside" id="Chs-Qc-8Lj"/>
                             </connections>
@@ -123,23 +176,34 @@
                         <constraint firstItem="pie-Ob-8Kq" firstAttribute="leading" secondItem="A7N-ts-eyF" secondAttribute="leading" constant="18" id="9MM-2Y-fIS"/>
                         <constraint firstItem="Eym-XT-5kT" firstAttribute="width" secondItem="pie-Ob-8Kq" secondAttribute="width" id="Aje-5B-jxL"/>
                         <constraint firstItem="42i-Zm-N6C" firstAttribute="top" secondItem="o8Z-Qt-VOu" secondAttribute="bottom" id="BxJ-CA-Xaq"/>
-                        <constraint firstAttribute="bottom" secondItem="P80-dM-pfB" secondAttribute="bottom" constant="8" id="Cth-9V-YYh"/>
+                        <constraint firstAttribute="bottom" secondItem="P80-dM-pfB" secondAttribute="bottom" constant="18" id="Cth-9V-YYh"/>
                         <constraint firstAttribute="trailing" secondItem="o8Z-Qt-VOu" secondAttribute="trailing" constant="18" id="Fd1-22-LNT"/>
                         <constraint firstItem="VfD-t6-yGc" firstAttribute="top" secondItem="pie-Ob-8Kq" secondAttribute="bottom" constant="8" id="I2Y-kB-ADl"/>
                         <constraint firstItem="o8Z-Qt-VOu" firstAttribute="top" secondItem="VfD-t6-yGc" secondAttribute="bottom" id="LU9-A4-tLx"/>
-                        <constraint firstAttribute="height" constant="230" id="Pjw-xd-kX1"/>
+                        <constraint firstAttribute="height" constant="245" id="Pjw-xd-kX1"/>
                         <constraint firstAttribute="trailing" secondItem="VfD-t6-yGc" secondAttribute="trailing" constant="18" id="QGR-mU-Xmj"/>
                         <constraint firstAttribute="trailing" secondItem="42i-Zm-N6C" secondAttribute="trailing" constant="18" id="RKM-kS-0ss"/>
                         <constraint firstItem="Eym-XT-5kT" firstAttribute="leading" secondItem="pie-Ob-8Kq" secondAttribute="trailing" constant="8" id="V0X-BK-dvo"/>
-                        <constraint firstItem="4SV-tR-AnM" firstAttribute="top" secondItem="IXd-vj-2T4" secondAttribute="bottom" constant="14" id="Zjp-eT-tZF"/>
+                        <constraint firstItem="4SV-tR-AnM" firstAttribute="top" secondItem="IXd-vj-2T4" secondAttribute="bottom" constant="19" id="Zjp-eT-tZF"/>
                         <constraint firstItem="P80-dM-pfB" firstAttribute="centerX" secondItem="A7N-ts-eyF" secondAttribute="centerX" id="aWI-yv-2Vc"/>
                         <constraint firstAttribute="trailing" secondItem="IXd-vj-2T4" secondAttribute="trailing" constant="18" id="bjQ-UI-rOo"/>
-                        <constraint firstAttribute="bottom" secondItem="4SV-tR-AnM" secondAttribute="bottom" constant="8" id="cxy-cs-o7e"/>
+                        <constraint firstAttribute="bottom" secondItem="4SV-tR-AnM" secondAttribute="bottom" constant="18" id="cxy-cs-o7e"/>
                         <constraint firstAttribute="trailing" secondItem="4El-lw-Ahc" secondAttribute="trailing" constant="18" id="fPI-BZ-ba5"/>
                         <constraint firstItem="VfD-t6-yGc" firstAttribute="leading" secondItem="A7N-ts-eyF" secondAttribute="leading" constant="18" id="qhU-8C-NJq"/>
-                        <constraint firstAttribute="bottom" secondItem="4El-lw-Ahc" secondAttribute="bottom" constant="8" id="usz-uL-AMW"/>
+                        <constraint firstAttribute="bottom" secondItem="4El-lw-Ahc" secondAttribute="bottom" constant="18" id="usz-uL-AMW"/>
                         <constraint firstItem="IXd-vj-2T4" firstAttribute="leading" secondItem="A7N-ts-eyF" secondAttribute="leading" constant="18" id="zzb-t4-8oe"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornurRadius">
+                            <real key="value" value="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="0.5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

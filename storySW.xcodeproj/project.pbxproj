@@ -22,6 +22,7 @@
 		4C7E9B631C5B669600A52676 /* UIViewControllerHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7E9B621C5B669600A52676 /* UIViewControllerHelper.swift */; };
 		4C8791DD1C8FEE6600042E5F /* ParagraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8791DC1C8FEE6600042E5F /* ParagraphView.swift */; };
 		4C8791DF1C8FEE8800042E5F /* ParagraphView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C8791DE1C8FEE8800042E5F /* ParagraphView.xib */; };
+		4C8791E11C901D7C00042E5F /* ButtonExtender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8791E01C901D7C00042E5F /* ButtonExtender.swift */; };
 		4CBBE5CD1C72D794001810A1 /* reader.html in Resources */ = {isa = PBXBuildFile; fileRef = 4CBBE5CC1C72D794001810A1 /* reader.html */; };
 		4CC180781C87EACE00D8CB45 /* jquery-2.2.1.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 4CC180771C87EACE00D8CB45 /* jquery-2.2.1.min.js */; };
 		4CC2E88D1C561769007AC7D8 /* RealmTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC2E88C1C561769007AC7D8 /* RealmTransform.swift */; };
@@ -74,6 +75,7 @@
 		4C7E9B621C5B669600A52676 /* UIViewControllerHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIViewControllerHelper.swift; path = Extension/UIViewControllerHelper.swift; sourceTree = "<group>"; };
 		4C8791DC1C8FEE6600042E5F /* ParagraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParagraphView.swift; sourceTree = "<group>"; };
 		4C8791DE1C8FEE8800042E5F /* ParagraphView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParagraphView.xib; sourceTree = "<group>"; };
+		4C8791E01C901D7C00042E5F /* ButtonExtender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonExtender.swift; sourceTree = "<group>"; };
 		4CBBE5CC1C72D794001810A1 /* reader.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = reader.html; sourceTree = "<group>"; };
 		4CC180771C87EACE00D8CB45 /* jquery-2.2.1.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-2.2.1.min.js"; sourceTree = "<group>"; };
 		4CC2E88C1C561769007AC7D8 /* RealmTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealmTransform.swift; path = Extension/RealmTransform.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				4CC2E88C1C561769007AC7D8 /* RealmTransform.swift */,
 				4C3FEBCF1C5A258800C1C9A9 /* Tabbar.swift */,
 				4C7E9B621C5B669600A52676 /* UIViewControllerHelper.swift */,
+				4C8791E01C901D7C00042E5F /* ButtonExtender.swift */,
 			);
 			name = Extension;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				4C13DBA31C522A470021613E /* NSDate+Formatter.swift in Sources */,
 				4C13DBA41C522A470021613E /* UIButton+Border.swift in Sources */,
 				4CC4ED801C4F2CBC00506F13 /* HomeViewController.swift in Sources */,
+				4C8791E11C901D7C00042E5F /* ButtonExtender.swift in Sources */,
 				4C0CAEAE1C62208900ACFFD5 /* String2Html.swift in Sources */,
 				4C34F72D1C5747B3004D4D4C /* DetailViewController.swift in Sources */,
 				4C1E2ECA1C507A9300FE8B5C /* Story.swift in Sources */,

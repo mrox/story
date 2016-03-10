@@ -66,7 +66,6 @@ class ParagraphView: UIView {
     class func instanceFromNib() -> ParagraphView {
         let view = UINib(nibName: "ParagraphView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! ParagraphView
         view.frame = UIScreen.mainScreen().bounds
-        view.bgView.addBorder(.Top, color: UIColor.lightGrayColor(), width: 0.5)
         view.changeFontFamily()
         return view
     }
