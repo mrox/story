@@ -9,6 +9,8 @@
 import UIKit
 import WebKit
 
+
+//reader View
 class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecognizerDelegate, UIWebViewDelegate {
     
     var chapter = Chapter()
