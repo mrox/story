@@ -1,0 +1,2 @@
+/Users/TuyenTran/Library/Developer/Xcode/DerivedData/storySW-dycnywwqrtosbcfobnmtfwjfdrlt/Build/Products/Debug-iphonesimulator/storySW.app
+iPhone Developer
