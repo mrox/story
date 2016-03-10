@@ -15,6 +15,12 @@ internal let SCROLL_DURATION = 0.2
 class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecognizerDelegate, UIWebViewDelegate {
     
     var chapter = Chapter()
+    var paragraphView = ParagraphView()
+    var controlIsHiden = true
+    var scrolling = false
+    let prefs = NSUserDefaults.standardUserDefaults()
+    var tapDetect = UITapGestureRecognizer()
+    
     var controlView = ControlView() {
         didSet {
             self.controlView.delegate = self
@@ -36,17 +42,40 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
         }
     }
     
-    var paragraphView = ParagraphView()
-    var controlIsHiden = true
-    var scrolling = false
-    let prefs = NSUserDefaults.standardUserDefaults()
+    
+    var fView = firstView(){
+        didSet{
+            fView.prevButton.addTarget(self, action: "prevChapter", forControlEvents: .TouchUpInside)
+            fView.nextButton.addTarget(self, action: "nextChapter", forControlEvents: .TouchUpInside)
+//            fView.addGestureRecognizer(tapDetect)
+        }
+    }
+//    var lView = LastView() {
+//        didSet {
+//            lView.
+//        }
+//    }
+    
+    var scrollView = UIScrollView(){
+        didSet{
+            
+            scrollView.contentSize = CGSizeMake(scrollView.bounds.width*3, scrollView.bounds.height)
+            scrollView.pagingEnabled = true
+            scrollView.bounces = false
+            scrollView.showsHorizontalScrollIndicator = false
+            scrollView.showsVerticalScrollIndicator = false
+        }
+    }
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        self.scrollView.removeFromSuperview()
+        self.scrollView = UIScrollView(frame: self.view.bounds)
+        self.view.addSubview(self.scrollView)
         
-        self.webView = UIWebView(frame: self.view.bounds)
-        self.view.addSubview(self.webView)
+        self.webView = UIWebView(frame: CGRectMake(self.view.frame.width,0, self.view.frame.width, self.view.frame.height))
+        self.scrollView.addSubview(self.webView)
         
         
         Chapter.getContent(chapter.id) { (result) -> Void in
@@ -57,7 +86,7 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
             
         }
         
-        let tapDetect = UITapGestureRecognizer.init(target: self, action: Selector("tapGesture:"))
+        self.tapDetect = UITapGestureRecognizer.init(target: self, action: Selector("tapGesture:"))
         tapDetect.delegate = self
         self.webView.addGestureRecognizer(tapDetect)
         
@@ -76,6 +105,24 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "fontFamilyChange", name: FONTCHANGE, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "styleChange", name: READER_STYLE_DEFAULT_KEY, object: nil)
         
+    }
+    
+    func settingExtendView(){
+        self.fView = firstView.instanceFromNib()
+        
+        self.scrollView.addSubview(fView)
+        
+        let lView = LastView.instanceFromNib(CGRectMake(self.view.frame.width*2, 0, self.view.frame.width, self.view.frame.height))
+        self.scrollView.addSubview(lView)
+    }
+    
+    func prevChapter(){
+        print("prevChapter")
+        self.chapter.id = self.chapter.prevChapter
+    }
+    func nextChapter(){
+        self.chapter.id = self.chapter.nextChapter
+        self.viewDidLoad()
     }
     
     //MARK: - Controls
@@ -204,10 +251,11 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
         catch {
             print("error load local file")
         }
-        
+
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
+        self.settingExtendView()
         self.styleReaderView()
         self.fixContentSize()
 
@@ -248,14 +296,14 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
     
     // MARK: - Touch
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        
+        print("touch")
         let touch = touches.first! as UITouch
         self.tapGesture(touch)
         
     }
     
     func tapGesture(recognizer: UITouch){
-
+        print(recognizer.view)
         let location = recognizer.locationInView(self.view)
         
         if (!self.controlIsHiden) {

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="firstView" customModule="storySW" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mjk-Ip-tYl">
+                    <rect key="frame" x="18" y="60" width="284" height="21.5"/>
+                    <attributedString key="attributedText">
+                        <fragment content="Xuyên Thành Nữ ">
+                            <attributes>
+                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <font key="NSFont" size="18" name="HelveticaNeue-Bold"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Chương 1983: Phụ trương nhảm nhảm: Hai con đại khốn nạn gặp nhau" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MTp-vT-UEu">
+                    <rect key="frame" x="18" y="89" width="284" height="36"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="H76-ip-UGG" customClass="ButtonExtender" customModule="storySW" customModuleProvider="target">
+                    <rect key="frame" x="18" y="448" width="134" height="30"/>
+                    <state key="normal" title="Chương Trước"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="0.5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornurRadius">
+                            <real key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yf0-IG-xt6" customClass="ButtonExtender" customModule="storySW" customModuleProvider="target">
+                    <rect key="frame" x="168" y="448" width="134" height="30"/>
+                    <state key="normal" title="Chương Tiếp"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="0.5"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornurRadius">
+                            <real key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Quảng Cáo" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VlH-Dd-iAg">
+                    <rect key="frame" x="0.0" y="508" width="320" height="60"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="sPD-da-H4z"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="VlH-Dd-iAg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3jn-jM-ZbV"/>
+                <constraint firstAttribute="bottom" secondItem="H76-ip-UGG" secondAttribute="bottom" constant="90" id="6p8-Hj-3Ll"/>
+                <constraint firstAttribute="trailing" secondItem="MTp-vT-UEu" secondAttribute="trailing" constant="18" id="928-2s-16P"/>
+                <constraint firstItem="H76-ip-UGG" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="18" id="9xJ-GH-N5C"/>
+                <constraint firstItem="mjk-Ip-tYl" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="18" id="BFa-tu-okr"/>
+                <constraint firstAttribute="trailing" secondItem="mjk-Ip-tYl" secondAttribute="trailing" constant="18" id="OF9-33-U5m"/>
+                <constraint firstAttribute="bottom" secondItem="Yf0-IG-xt6" secondAttribute="bottom" constant="90" id="Ofh-qN-dTt"/>
+                <constraint firstAttribute="trailing" secondItem="VlH-Dd-iAg" secondAttribute="trailing" id="P1W-vE-jDW"/>
+                <constraint firstItem="Yf0-IG-xt6" firstAttribute="width" secondItem="H76-ip-UGG" secondAttribute="width" id="Vjx-17-O5x"/>
+                <constraint firstItem="mjk-Ip-tYl" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="60" id="ZGF-fm-EO4"/>
+                <constraint firstItem="Yf0-IG-xt6" firstAttribute="height" secondItem="H76-ip-UGG" secondAttribute="height" id="kSp-15-YV5"/>
+                <constraint firstAttribute="bottom" secondItem="VlH-Dd-iAg" secondAttribute="bottom" id="p3V-7m-xPI"/>
+                <constraint firstItem="MTp-vT-UEu" firstAttribute="top" secondItem="mjk-Ip-tYl" secondAttribute="bottom" constant="8" id="pLt-C8-mJX"/>
+                <constraint firstItem="Yf0-IG-xt6" firstAttribute="leading" secondItem="H76-ip-UGG" secondAttribute="trailing" constant="16" id="sYi-jd-XT9"/>
+                <constraint firstAttribute="trailing" secondItem="Yf0-IG-xt6" secondAttribute="trailing" constant="18" id="y5A-5c-Vos"/>
+                <constraint firstItem="MTp-vT-UEu" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="18" id="yZD-28-JMc"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <connections>
+                <outlet property="nextButton" destination="Yf0-IG-xt6" id="ReR-Gh-Wdg"/>
+                <outlet property="prevButton" destination="H76-ip-UGG" id="vNt-06-mLP"/>
+            </connections>
+        </view>
+    </objects>
+</document>

@@ -11,6 +11,7 @@
 		4C13DBA31C522A470021613E /* NSDate+Formatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C13DBA01C522A470021613E /* NSDate+Formatter.swift */; };
 		4C13DBA41C522A470021613E /* UIButton+Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C13DBA11C522A470021613E /* UIButton+Border.swift */; };
 		4C13DBA51C522A470021613E /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C13DBA21C522A470021613E /* UIColorExtensions.swift */; };
+		4C1BE8F01C9141D90033FF7C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C1BE8EF1C9141D90033FF7C /* main.m */; };
 		4C1E2ECA1C507A9300FE8B5C /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E2EC91C507A9300FE8B5C /* Story.swift */; };
 		4C1E2ECC1C50845F00FE8B5C /* Chapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C1E2ECB1C50845F00FE8B5C /* Chapter.swift */; };
 		4C34F72D1C5747B3004D4D4C /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C34F72C1C5747B3004D4D4C /* DetailViewController.swift */; };
@@ -23,6 +24,10 @@
 		4C8791DD1C8FEE6600042E5F /* ParagraphView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8791DC1C8FEE6600042E5F /* ParagraphView.swift */; };
 		4C8791DF1C8FEE8800042E5F /* ParagraphView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C8791DE1C8FEE8800042E5F /* ParagraphView.xib */; };
 		4C8791E11C901D7C00042E5F /* ButtonExtender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C8791E01C901D7C00042E5F /* ButtonExtender.swift */; };
+		4C994C6D1C914B5D00E0417F /* firstView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C994C6C1C914B5D00E0417F /* firstView.xib */; };
+		4C994C711C914BAC00E0417F /* firstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C994C701C914BAC00E0417F /* firstView.swift */; };
+		4C994C731C914F6D00E0417F /* LastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C994C721C914F6D00E0417F /* LastView.swift */; };
+		4C994C751C914F7D00E0417F /* LastView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C994C741C914F7D00E0417F /* LastView.xib */; };
 		4CBBE5CD1C72D794001810A1 /* reader.html in Resources */ = {isa = PBXBuildFile; fileRef = 4CBBE5CC1C72D794001810A1 /* reader.html */; };
 		4CC180781C87EACE00D8CB45 /* jquery-2.2.1.min.js in Resources */ = {isa = PBXBuildFile; fileRef = 4CC180771C87EACE00D8CB45 /* jquery-2.2.1.min.js */; };
 		4CC2E88D1C561769007AC7D8 /* RealmTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC2E88C1C561769007AC7D8 /* RealmTransform.swift */; };
@@ -64,6 +69,7 @@
 		4C13DBA01C522A470021613E /* NSDate+Formatter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSDate+Formatter.swift"; path = "Extension/NSDate+Formatter.swift"; sourceTree = "<group>"; };
 		4C13DBA11C522A470021613E /* UIButton+Border.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIButton+Border.swift"; path = "Extension/UIButton+Border.swift"; sourceTree = "<group>"; };
 		4C13DBA21C522A470021613E /* UIColorExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColorExtensions.swift; path = Extension/UIColorExtensions.swift; sourceTree = "<group>"; };
+		4C1BE8EF1C9141D90033FF7C /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4C1E2EC91C507A9300FE8B5C /* Story.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		4C1E2ECB1C50845F00FE8B5C /* Chapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chapter.swift; sourceTree = "<group>"; };
 		4C34F72C1C5747B3004D4D4C /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +82,10 @@
 		4C8791DC1C8FEE6600042E5F /* ParagraphView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParagraphView.swift; sourceTree = "<group>"; };
 		4C8791DE1C8FEE8800042E5F /* ParagraphView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ParagraphView.xib; sourceTree = "<group>"; };
 		4C8791E01C901D7C00042E5F /* ButtonExtender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ButtonExtender.swift; sourceTree = "<group>"; };
+		4C994C6C1C914B5D00E0417F /* firstView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = firstView.xib; sourceTree = "<group>"; };
+		4C994C701C914BAC00E0417F /* firstView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = firstView.swift; sourceTree = "<group>"; };
+		4C994C721C914F6D00E0417F /* LastView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LastView.swift; sourceTree = "<group>"; };
+		4C994C741C914F7D00E0417F /* LastView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LastView.xib; sourceTree = "<group>"; };
 		4CBBE5CC1C72D794001810A1 /* reader.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = reader.html; sourceTree = "<group>"; };
 		4CC180771C87EACE00D8CB45 /* jquery-2.2.1.min.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = "jquery-2.2.1.min.js"; sourceTree = "<group>"; };
 		4CC2E88C1C561769007AC7D8 /* RealmTransform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RealmTransform.swift; path = Extension/RealmTransform.swift; sourceTree = "<group>"; };
@@ -194,6 +204,10 @@
 				4CFB8C401C62EE6400D6EC80 /* ControlView.xib */,
 				4C8791DC1C8FEE6600042E5F /* ParagraphView.swift */,
 				4C8791DE1C8FEE8800042E5F /* ParagraphView.xib */,
+				4C994C701C914BAC00E0417F /* firstView.swift */,
+				4C994C6C1C914B5D00E0417F /* firstView.xib */,
+				4C994C721C914F6D00E0417F /* LastView.swift */,
+				4C994C741C914F7D00E0417F /* LastView.xib */,
 				4CBBE5CC1C72D794001810A1 /* reader.html */,
 				4C47B6C61C733B3A0008FB18 /* some_image.jpg */,
 				4CC180771C87EACE00D8CB45 /* jquery-2.2.1.min.js */,
@@ -204,6 +218,7 @@
 		4CC4ED451C4F276A00506F13 = {
 			isa = PBXGroup;
 			children = (
+				4C1BE8EF1C9141D90033FF7C /* main.m */,
 				4CC4ED501C4F276A00506F13 /* storySW */,
 				4CC4ED651C4F276A00506F13 /* storySWTests */,
 				4CC4ED701C4F276A00506F13 /* storySWUITests */,
@@ -376,6 +391,8 @@
 				4CC4ED5C1C4F276A00506F13 /* LaunchScreen.storyboard in Resources */,
 				4CC4ED591C4F276A00506F13 /* Assets.xcassets in Resources */,
 				4CC4ED571C4F276A00506F13 /* Main.storyboard in Resources */,
+				4C994C751C914F7D00E0417F /* LastView.xib in Resources */,
+				4C994C6D1C914B5D00E0417F /* firstView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +466,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CC4ED521C4F276A00506F13 /* AppDelegate.swift in Sources */,
+				4C994C711C914BAC00E0417F /* firstView.swift in Sources */,
 				4C34F7301C5769C3004D4D4C /* DetailCell.swift in Sources */,
 				4C7E9B631C5B669600A52676 /* UIViewControllerHelper.swift in Sources */,
 				4C1E2ECC1C50845F00FE8B5C /* Chapter.swift in Sources */,
@@ -456,6 +474,7 @@
 				4CD68C0E1C59B48C00413988 /* ChapterCell.swift in Sources */,
 				4C3FEBD01C5A258800C1C9A9 /* Tabbar.swift in Sources */,
 				4C8791DD1C8FEE6600042E5F /* ParagraphView.swift in Sources */,
+				4C994C731C914F6D00E0417F /* LastView.swift in Sources */,
 				4C73871B1C607B540083F105 /* ReaderViewController.swift in Sources */,
 				4CC2E88D1C561769007AC7D8 /* RealmTransform.swift in Sources */,
 				4CC4ED821C4F2F4200506F13 /* HomeCell.swift in Sources */,
@@ -467,6 +486,7 @@
 				4C34F72D1C5747B3004D4D4C /* DetailViewController.swift in Sources */,
 				4C1E2ECA1C507A9300FE8B5C /* Story.swift in Sources */,
 				4CFB8C3F1C62EE5100D6EC80 /* ControlView.swift in Sources */,
+				4C1BE8F01C9141D90033FF7C /* main.m in Sources */,
 				4C13DBA51C522A470021613E /* UIColorExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -552,6 +572,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -610,12 +631,15 @@
 			baseConfigurationReference = D2EAFCADF1CCFA9F3E1CFC9F /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = storySW/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iosmobi.storySW;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -624,6 +648,7 @@
 			baseConfigurationReference = 1CCCBB0896C325A33E75DE4F /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = storySW/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
@@ -637,6 +662,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = storySWTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iosmobi.storySWTests;
@@ -660,6 +686,7 @@
 		4CC4ED7D1C4F276A00506F13 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				INFOPLIST_FILE = storySWUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iosmobi.storySWUITests;
