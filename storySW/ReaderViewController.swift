@@ -177,7 +177,7 @@ class ReaderViewController: UIViewController, ControlDelegate, UIGestureRecogniz
         
         self.controlView.sliderView.maximumValue = Float(maxPage)
         self.controlView.sliderView.value = Float(currentPage)
-        self.controlView.pageLabel.text = "\(currentPage)/\(maxPage)"
+        self.controlView.pageLabel.text = "\(Int(currentPage))/\(Int(maxPage))"
         
     }
     

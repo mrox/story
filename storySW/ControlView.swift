@@ -48,7 +48,10 @@ class ControlView: UIView {
     }
     
     @IBAction func pagesSlider(sender: UISlider) {
-        
+        self.pageLabel.text = "\(Int(sender.value))/\(Int(sender.maximumValue))"
+    }
+    
+    func endSlide(sender: UISlider) {
         self.delegate?.pageChange!(Int(sender.value));
     }
     
@@ -60,6 +63,7 @@ class ControlView: UIView {
     func configView(){
         self.sliderView.minimumValue = 1
         self.sliderView.value = 1
+        self.sliderView.addTarget(self, action: "endSlide:", forControlEvents: .TouchUpInside)
         
         self.topView.addBorder(.Bottom, color: UIColor.lightGrayColor(), width: 0.5)
         self.bottomView.addBorder(.Top, color: UIColor.lightGrayColor(), width: 0.5)
